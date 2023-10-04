@@ -15,6 +15,11 @@ namespace ContosoCrafts.WebSite.Pages
     ///<summary>
     ///Yashashree Deshpande
     ///</summary>
+    
+    ///<summary>
+    ///Rupa Dinesh
+    ///</summary>
+
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
