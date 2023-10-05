@@ -11,13 +11,17 @@ namespace ContosoCrafts.WebSite.Pages
     /// <summary>
     /// Srishti Adkar
     /// </summary>
-    
+
     ///<summary>
     ///Yashashree Deshpande
     ///</summary>
-    
+
     ///<summary>
     ///Rupa Dinesh
+    ///</summary>
+
+    ///<summary>
+    ///John Vikas Kotaru
     ///</summary>
 
     public class IndexModel : PageModel
