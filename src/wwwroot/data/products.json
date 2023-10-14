@@ -9,6 +9,7 @@
     "Title": "Gridder",
     "Description": "The Gridder is a gardening tool that rolls out perfectly spaced grids for planting.",
     "review": "The equipment was in good condition.It made my work easy",
+    "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
       5,
       5,
@@ -30,6 +31,7 @@
     "Title": "Grass Cutter",
     "Description": "This is a mechanical device designed for cutting and maintaining the height of grass on lawns, gardens, or other outdoor areas.",
     "review": null,
+    "Location": "Seattle, Belleve",
     "Ratings": [
       2,
       2,
@@ -46,6 +48,7 @@
     "Url": "https://www.youtube.com/watch?v=khAuY-2GQ-A",
     "Title": "Ice cream Maker",
     "Description": "An ice cream maker is a kitchen appliance that churns and freezes liquid ice cream mixture to create homemade ice cream.",
+    "Location": "Seattle",
     "Ratings": [
       2,
       2,
@@ -62,6 +65,7 @@
     "Url": "https://www.youtube.com/watch?v=L_pMxrEYvp8",
     "Title": "Cordless snow blower",
     "Description": "A cordless snow blower is a portable snow removal device powered by rechargeable batteries, offering flexibility and freedom from electrical cords.",
+    "Location": "Belleve",
     "Ratings": [
       2,
       2,
@@ -78,6 +82,7 @@
     "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA",
     "Title": "Tent and Camping Gear",
     "Description": "Camping equipment like tents, sleeping bags, and camping stoves.",
+    "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
       2,
       2,
@@ -94,6 +99,7 @@
     "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA",
     "Title": "Rug and Carpet Cleaner",
     "Description": "Used to deep clean carpets and rugs.",
+    "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
       2,
       2,
