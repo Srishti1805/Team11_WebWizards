@@ -9,14 +9,16 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Location</th>    <!--Added a new column named Location-->
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var product in Model.Products)
-            {
+            { 
                 <tr>
                     <td>@product.Title</td>
+                    <td>@product.Location</td>          <!-- Added details inside Location column for each product -->
                     <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
                 </tr>
             }
