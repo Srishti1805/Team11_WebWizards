@@ -2,6 +2,27 @@
 @{
 	ViewData["Title"] = "About Us";
 }
+
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            flex: 25%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
 <h1>@ViewData["Title"]</h1>
 
 <p>
@@ -25,24 +46,28 @@
 
 <h2>Meet the Team</h2>
 
-<div class="team-member">
+<div class="row">
+<div class="column">
     <img src="~/images/Srishti_Adkar.png" alt="Team Member 1">
-    <h3>Srishti Adkar</h3>
+    <h5>Srishti Adkar</h5>
 </div>
 
-<div class="team-member">
+        <div class="column">
     <img src="~/images/Yashashree_Deshpande.png" alt="Team Member 2">
-    <h3>Yashashree Deshpande</h3>
+    <h5>Yashashree Deshpande</h5>
 </div>
 
-<div class="team-member">
+        <div class="column">
     <img src="~/images/Rupa_Dinesh_Lnu.png" alt="Team Member 3">
-    <h3>Rupa Dinesh Lnu</h3>
+    <h5>Rupa Dinesh Lnu</h5>
 </div>
 
-<div class="team-member">
+        <div class="column">
     <img src="~/images/John_Vikas_Kotaru.png" alt="Team Member 4">
-    <h3>John Vikas Kotaru</h3>
+    <h5>John Vikas Kotaru</h5>
 </div>
 
 <p>Together, we are dedicated to ensuring a smooth transaction to our users. We believe in offering a secure and user-friendly environment.</p>
+
+</body>
+</html>
