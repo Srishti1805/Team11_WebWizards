@@ -6,14 +6,42 @@
 @{
     ViewData["Title"] = "Read page";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    img.card-img {
+        width: 512px;
+        height: auto;
+    }
 
-<h1>Read</h1>
+    .checked {
+        color: orange;
+    }
+</style>
+
 
 <div class="content">
-    <h5 class="title" id="productTitle">@Model.Product.Title</h5>
+    <h1 class="title" id="productTitle">@Model.Product.Title</h1>
 
     <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
 
+    <h4><br />Description</h4>
     <p class="card-text">@Model.Product.Description</p>
+    <h4>Price</h4>
+    <p class="card-text"><i><b>@Model.Product.Price</b></i></p>
+    <h4>Availability</h4>
+    <p class="card-text">@Model.Product.Location</p>
+    <h4>Tutorial:</h4>
+    <p class="card-text"><a href="@Model.Product.Url"><small>Learn more about @Model.Product.Title</small></a></p>
 
+    <p class="card-text">Listing by: @Model.Product.Owner</p>
+    <p class="card-text">Contact: @Model.Product.Phone, @Model.Product.Email</p>
+
+    <h4>Reviews</h4>
+    <p class="card-text">@Model.Product.review</p>
+    <p class="card-rating">Rating: <strong>@Model.Product.Ratings.Average()</strong></p>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
 </div>
