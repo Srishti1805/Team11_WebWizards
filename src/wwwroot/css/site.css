@@ -53,9 +53,24 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+/*Update colour of the body */
+.background-color {
+    color: black;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #099ceb;
+}
+
+body {
+
+    /*Updated the background colour */
+    background-color: black;
+
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+
 }
 
 .btn-primary {
