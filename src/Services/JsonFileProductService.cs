@@ -14,6 +14,10 @@ namespace ContosoCrafts.WebSite.Services
    /// </summary>
    public class JsonFileProductService
     {
+        /// <summary>
+        /// Contructor for initializing the service with the web host environment.
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
