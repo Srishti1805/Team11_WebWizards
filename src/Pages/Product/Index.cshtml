@@ -4,13 +4,14 @@
     ViewData["Title"] = "Index page";
 }
 
-<div class="container">
+<div class="container"> 
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Location</th>    <!--Added a new column named Location-->
                 <th>Action</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -19,7 +20,8 @@
                 <tr>
                     <td>@product.Title</td>
                     <td>@product.Location</td>          <!-- Added details inside Location column for each product -->
-                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id">Read&nbsp;&nbsp</a><a asp-page="Update" asp-route-id="@product.Id">&nbsp;Update</a></td>
+                    
                 </tr>
             }
         </tbody>
