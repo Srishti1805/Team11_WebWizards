@@ -14,6 +14,7 @@ namespace ContosoCrafts.WebSite
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    // UseStartup configures the Startup class for the web application.
                     webBuilder.UseStartup<Startup>();
                 });
     }
