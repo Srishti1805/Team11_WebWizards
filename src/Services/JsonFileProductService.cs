@@ -57,22 +57,24 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="productId"></param>
         /// <param name="rating"></param>
         public void AddRating(string productId, int rating)
-        {
-            // 
+        { 
             var products = GetProducts();
 
-            if(products.First(x => x.Id == productId).Ratings == null)
+            // If the product's ratings array is null, create a new array with the given rating.
+            if (products.First(x => x.Id == productId).Ratings == null)
             {
                 products.First(x => x.Id == productId).Ratings = new int[] { rating };
             }
             else
             {
+                // If ratings array exists, add the new rating to the existing ratings.
                 var ratings = products.First(x => x.Id == productId).Ratings.ToList();
                 ratings.Add(rating);
                 products.First(x => x.Id == productId).Ratings = ratings.ToArray();
             }
 
-            using(var outputStream = File.OpenWrite(JsonFileName))
+            // // Serialize the updated products collection and write it back to the JSON file.
+            using (var outputStream = File.OpenWrite(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ProductModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
