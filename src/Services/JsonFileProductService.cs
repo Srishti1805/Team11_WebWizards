@@ -23,13 +23,20 @@ namespace ContosoCrafts.WebSite.Services
             WebHostEnvironment = webHostEnvironment;
         }
 
+        // Property representing the web host environment
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        // Private property representing the full path to the JSON file
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
+        /// <summary>
+        /// Retrieves a collection of products from the JSON file.
+        // Returns: IEnumerable<ProductModel> - Collection of products.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetProducts()
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
@@ -42,8 +49,16 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        /// <summary>
+        /// Adds a rating to the specified product
+        /// productId (string): The unique identifier of the product.
+        /// rating (int): The rating to be added to the product.
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="rating"></param>
         public void AddRating(string productId, int rating)
         {
+            // 
             var products = GetProducts();
 
             if(products.First(x => x.Id == productId).Ratings == null)
