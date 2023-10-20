@@ -1,5 +1,9 @@
-﻿@page
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
+@inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.UpdateModel
 @{
-}
 
+    ViewData["Title"] = "Update Page";
+}
