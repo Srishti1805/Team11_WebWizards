@@ -4,8 +4,6 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<h3 style="font-family: 'Pixelify Sans', sans-serif; font-size: 15px; font-weight: bold; color: #FFFFFF;">No Tools, No Problem: Rent the Solution</h3>
-
 @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 
 <script src="_framework/blazor.server.js"></script>
