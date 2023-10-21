@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
-   /// <summary>
-   /// Data Middle tier service handling JSON operations
-   /// </summary>
-   public class JsonFileProductService
+    /// <summary>
+    /// Data Middle tier service handling JSON operations
+    /// </summary>
+    public class JsonFileProductService
     {
         /// <summary>
         /// Contructor for initializing the service with the web host environment.
@@ -39,7 +39,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns></returns>
         public IEnumerable<ProductModel> GetProducts()
         {
-            using(var jsonFileReader = File.OpenText(JsonFileName))
+            using (var jsonFileReader = File.OpenText(JsonFileName))
             {
                 return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
@@ -48,7 +48,6 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
-
         /// <summary>
         /// Adds a rating to the specified product
         /// productId (string): The unique identifier of the product.
@@ -56,32 +55,92 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="rating"></param>
-        public void AddRating(string productId, int rating)
-        { 
+        public bool AddRating(string productId, int rating)
+        {
             var products = GetProducts();
 
-            // If the product's ratings array is null, create a new array with the given rating.
-            if (products.First(x => x.Id == productId).Ratings == null)
+            // if the productId is invalid, return false
+            if (string.IsNullOrEmpty(productId))
             {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
+                return false;
             }
-            else
+            // Read the product details by calling GetProducts() method
+            var product = GetProducts();
+
+            // Check if the product exist, if not return false
+            var data = product.FirstOrDefault(x => x.Id.Equals(productId));
+            if (data == null)
             {
-                // If ratings array exists, add the new rating to the existing ratings.
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
-                ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
+                return false;
+            }
+            // Check Rating for boundries, if rating less than 0 return false
+            if (rating < 0)
+            {
+                return false;
+            }
+            // Check Rating for boundries, if rating greater than 5 return false
+            if (rating > 5)
+            {
+                return false;
+            }
+            // Check to see if the rating exist, if there are none, then create the array
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { };
+            }
+            // Save the ratings to a rating array
+            var ratings = data.Ratings.ToList();
+            ratings.Add(rating);
+            data.Ratings = ratings.ToArray();
+
+            // Save the updated data in the product
+            SaveModifiedData(product);
+            return true;
+        }
+
+        /// <summary>
+        /// Update the fields in the product
+        /// Save the modified data
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public ProductModel UpdateData(ProductModel data)
+        {
+            // Read the data for selected product
+            var product = GetProducts();
+            var productmodeldata = product.FirstOrDefault(x => x.Id.Equals(data.Id));
+            if (productmodeldata == null)
+            {
+                return null;
             }
 
-            // // Serialize the updated products collection and write it back to the JSON file.
-            using (var outputStream = File.OpenWrite(JsonFileName))
+            // Update the selected data into the same fields
+            productmodeldata.Title = data.Title;
+            productmodeldata.Description = data.Description;
+            productmodeldata.Url = data.Url;
+            productmodeldata.Image = data.Image;
+            productmodeldata.Price = data.Price;
+            productmodeldata.review = data.review;
+
+            // Save the updated data in the product
+            SaveModifiedData(product);
+            return productmodeldata;
+        }
+
+        /// <summary>
+        /// Save the products data to JSON
+        /// </summary>
+        public void SaveModifiedData(IEnumerable<ProductModel> products)
+        {
+            // Serialize the updated products collection and write it back to the JSON file
+            using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ProductModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
                         Indented = true
-                    }), 
+                    }),
                     products
                 );
             }
