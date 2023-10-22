@@ -18,6 +18,9 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Product.Read
 {
+    /// <summary>
+    /// This class contains unit tests for the ReadModel class in the "Pages/Product/Read" namespace.
+    /// </summary>
     public class ReadTests
     {
         #region TestSetup
