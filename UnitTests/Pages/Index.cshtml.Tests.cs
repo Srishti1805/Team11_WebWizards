@@ -19,6 +19,9 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Index
 {
+    /// <summary>
+    /// The IndexTests class contains the unit tests for the index page of the website
+    /// </summary>
     public class IndexTests
     {
         #region TestSetup
@@ -34,22 +37,29 @@ namespace UnitTests.Pages.Index
 
         public static IndexModel pageModel;
 
+        /// <summary>
+        /// Initialises the product services and parameters for the test
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
+            // new http context class
             httpContextDefault = new DefaultHttpContext()
             {
                 //RequestServices = serviceProviderMock.Object,
             };
 
+            // new model state
             modelState = new ModelStateDictionary();
-
+            // new action context
             actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
-
+            // new model metadata provider
             modelMetadataProvider = new EmptyModelMetadataProvider();
+            // new data dictionary view
             viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            // temp dictionary for data
             tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
-
+            // new page context
             pageContext = new PageContext(actionContext)
             {
                 ViewData = viewData,
@@ -62,9 +72,9 @@ namespace UnitTests.Pages.Index
 
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
             JsonFileProductService productService;
-
+            // json handler
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
-
+            // new page model
             pageModel = new IndexModel(MockLoggerDirect, productService)
             {
             };
@@ -72,6 +82,9 @@ namespace UnitTests.Pages.Index
 
         #endregion TestSetup
 
+        /// <summary>
+        /// Test for OnGet for the index page
+        /// </summary>
         #region OnGet
         [Test]
         public void OnGet_Valid_Should_Return_Products()
