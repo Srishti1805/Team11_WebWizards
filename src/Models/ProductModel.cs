@@ -34,6 +34,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the image URL of the product.
         /// </summary>
+        [Required]
         [JsonPropertyName("img")]
         public string Image { get; set; }
         /// <summary>
