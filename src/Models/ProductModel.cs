@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -46,6 +47,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the title of the product.
         /// </summary>
+        [Required]
         public string Title { get; set; }
         /// <summary>
         /// Gets or sets the description of the product.
