@@ -52,6 +52,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the description of the product.
         /// </summary>
+        [Required]
         public string Description { get; set; }
         /// <summary>
         /// Gets or sets the review of the product.
