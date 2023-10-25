@@ -124,12 +124,14 @@ namespace ContosoCrafts.WebSite.Services
 
             // Save the updated data in the product
             SaveModifiedData(product);
-            return productmodeldata;
+            //Return the updated product data
+            return productmodeldata; 
         }
 
         /// <summary>
         /// Save the products data to JSON
         /// </summary>
+        /// <param name="products">The collection of products to be saved.</param>
         public void SaveModifiedData(IEnumerable<ProductModel> products)
         {
             // Serialize the updated products collection and write it back to the JSON file
