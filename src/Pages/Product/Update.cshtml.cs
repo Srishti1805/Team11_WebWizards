@@ -53,13 +53,6 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public IActionResult OnPost()
 
         {
-            //Check if the model state is valid (all required fields are filled).
-            if (!ModelState.IsValid)
-            {
-                // If not valid, redisplay the form.
-                return Page();
-            }
-
 
             // Update the product data using the product service
             ProductService.UpdateData(Product);
