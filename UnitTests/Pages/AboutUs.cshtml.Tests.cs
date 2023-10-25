@@ -19,9 +19,6 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.AboutUs
 {
-    /// <summary>
-    /// This class contains unit tests for the About_UsModel class in the AboutUs namespace.
-    /// </summary>
     public class AboutUsTests
     {
         #region TestSetup
@@ -37,9 +34,6 @@ namespace UnitTests.Pages.AboutUs
 
         public static About_UsModel pageModel;
 
-        /// <summary>
-        /// Initialises the product services and parameters for the test
-        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -83,12 +77,9 @@ namespace UnitTests.Pages.AboutUs
 
         #endregion TestSetup
 
-        /// <summary>
-        /// Test for OnGet for the aboutus page
-        /// </summary>
         #region OnGet
         [Test]
-        public void OnGet_Valid_Test_Should_Return_True()
+        public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
             // Arrange
 
