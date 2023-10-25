@@ -49,17 +49,15 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <summary>
         /// Handles HTTP POST requests and updates the product information
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns> A redirect result to the product index page after successful update
         public IActionResult OnPost()
 
         {
-
             // Update the product data using the product service
             ProductService.UpdateData(Product);
 
             // Redirect to the product index page after successful update.
             return RedirectToPage("./Index");
-
         }
 
     }
