@@ -36,6 +36,9 @@ namespace UnitTests.Pages.Product.Update
 
         public static UpdateModel pageModel;
 
+        /// <summary>
+        /// Initialises the product services and parameters for the test
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -74,9 +77,33 @@ namespace UnitTests.Pages.Product.Update
 
         #endregion TestSetup
 
+        /// <summary>
+        /// Test for OnGet for the update page
+        /// </summary>
+        #region OnGet
+        [Test]
+        public void OnGet_Valid_Should_Return_Product_Identifier()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("Gardening-gridder");
+            var result = pageModel.Product;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.NotNull(result);
+        }
+        #endregion OnGet
+
+        /// <summary>
+        /// Test for OnPost for the update page
+        /// </summary>
         #region OnPost
         [Test]
-        public void OnPost_Valid_Should_Return_Product_Price()
+        public void OnPost_Valid_Should_Update_and_Return_Product_Details()
         {
             // Arrange
             pageModel.OnGet("Gardening-gridder");
@@ -89,6 +116,8 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("20", pageModel.Product.Price);
+
+            // Reset
             pageModel.Product.Price = temp;
         }
         #endregion OnPost
