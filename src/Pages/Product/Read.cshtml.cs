@@ -22,13 +22,13 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        // The data to show
+        // Property to hold the product data to be displayed
         public ProductModel Product;
 
         /// <summary>
-        /// REST Get request
+        /// Handles HTTP Get requests and retrieves the product details based on provided ID
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The ID of the product to be displayed.</param>
         public void OnGet(string id)
         {
             Product  = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
