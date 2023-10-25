@@ -87,16 +87,17 @@ namespace UnitTests.Pages.Index
         /// </summary>
         #region OnGet
         [Test]
-        public void OnGet_Valid_Should_Return_Products()
+        public void OnGet_Valid_Should_Return_Products_Count()
         {
             // Arrange
 
             // Act
             pageModel.OnGet();
+            var result = pageModel.Products.ToList().Count;
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(15, pageModel.Products.ToList().Count);
+            Assert.AreEqual(6, result);
         }
         #endregion OnGet
     }
