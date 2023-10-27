@@ -48,6 +48,17 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
+        public IEnumerable<ProductModel> GetAllData()
+        {
+            using (var jsonFileReader = File.OpenText(JsonFileName))
+            {
+                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+            }
+        }
         /// <summary>
         /// Adds a rating to the specified product
         /// productId (string): The unique identifier of the product.
@@ -147,6 +158,7 @@ namespace ContosoCrafts.WebSite.Services
                 );
             }
         }
+
         /// <summary>
         /// Remove the item from the system
         /// </summary>
@@ -163,6 +175,12 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
+        /// <summary>
+        /// Create data to add to the system
+        /// </summary>
+        /// <returns></returns>
+        
+
 
     }
 }
