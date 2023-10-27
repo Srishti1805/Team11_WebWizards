@@ -179,7 +179,32 @@ namespace ContosoCrafts.WebSite.Services
         /// Create data to add to the system
         /// </summary>
         /// <returns></returns>
-        
+        public ProductModel CreateData()
+        {
+            var data = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Owner = "Enter Owner Name",
+                Phone = "Enter you mobile number",
+                Price = "Enter Price",
+                Description = "Enter Description",
+                Url = "Enter URL",
+                Image = "",
+                Title = "Enter Title",
+                Location = " Enter Location",
+                Email = "Enter Email",
+   
+               
+            };
+
+            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
+            var dataSet = GetAllData();
+            dataSet = dataSet.Append(data);
+
+            SaveModifiedData(dataSet);
+
+            return data;
+        }
 
 
     }
