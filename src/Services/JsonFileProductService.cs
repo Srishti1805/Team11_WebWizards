@@ -6,6 +6,7 @@ using System.Text.Json;
 using ContosoCrafts.WebSite.Models;
 
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.CodeAnalysis;
 
 namespace ContosoCrafts.WebSite.Services
 {
@@ -126,11 +127,17 @@ namespace ContosoCrafts.WebSite.Services
             }
 
             // Update the selected data into the same fields
+            productmodeldata.Id = data.Id;
+            productmodeldata.Owner = data.Owner;
+            productmodeldata.Phone = data.Phone;
+            productmodeldata.Name = data.Name;
+            productmodeldata.Email = data.Email;
             productmodeldata.Title = data.Title;
             productmodeldata.Description = data.Description;
+            productmodeldata.Price = data.Price;
             productmodeldata.Url = data.Url;
             productmodeldata.Image = data.Image;
-            productmodeldata.Price = data.Price;
+            productmodeldata.Location = data.Location;
             productmodeldata.review = data.review;
 
             // Save the updated data in the product
