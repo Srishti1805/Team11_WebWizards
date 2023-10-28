@@ -186,15 +186,15 @@ namespace ContosoCrafts.WebSite.Services
                 Id = System.Guid.NewGuid().ToString(),
                 Owner = "Enter Owner Name",
                 Phone = "Enter you mobile number",
-                Price = "Enter Price",
+                Name=null,
+                Email = "Enter Email",
+                Title = "Enter Title",
                 Description = "Enter Description",
+                Price = "Enter Price",
                 Url = "Enter URL",
                 Image = "",
-                Title = "Enter Title",
                 Location = " Enter Location",
-                Email = "Enter Email",
-   
-               
+                review=null,
             };
 
             // Get the current set, and append the new record to it becuase IEnumerable does not have Add

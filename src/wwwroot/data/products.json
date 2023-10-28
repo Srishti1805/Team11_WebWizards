@@ -1,6 +1,6 @@
 [
   {
-    "Id": "Gardening-gridder",
+    "Id": "1",
     "Owner": "Srishti",
     "Phone": "1478523690",
     "Name": null,
@@ -12,7 +12,6 @@
     "Description": "The Gridder is a gardening tool that rolls out perfectly spaced grids for planting.",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
-    "Avalaible Days": 10,
     "Ratings": [
       5,
       5,
@@ -25,7 +24,7 @@
     ]
   },
   {
-    "Id": "Gardening-Grass cutter",
+    "Id": "2",
     "Owner": "yashashree",
     "Phone": "1478523690",
     "Name": null,
@@ -37,7 +36,6 @@
     "Description": "This is a mechanical device designed for cutting and maintaining the height of grass on lawns, gardens, or other outdoor areas.",
     "review": null,
     "Location": "Seattle, Belleve",
-    "Avalaible Days": 12,
     "Ratings": [
       2,
       2,
@@ -46,7 +44,7 @@
     ]
   },
   {
-    "Id": "Home- Ice cream Maker",
+    "Id": "3",
     "Owner": "yashashree",
     "Phone": "1478523690",
     "Name": null,
@@ -58,7 +56,6 @@
     "Description": "An ice cream maker is a kitchen appliance that churns and freezes liquid ice cream mixture to create homemade ice cream.",
     "review": null,
     "Location": "Seattle",
-    "Avalaible Days": 8,
     "Ratings": [
       2,
       2,
@@ -67,7 +64,7 @@
     ]
   },
   {
-    "Id": "Snow equipments- Cordless snow blower",
+    "Id": "4",
     "Owner": "yashashree",
     "Phone": "1478523690",
     "Name": null,
@@ -79,7 +76,6 @@
     "Description": "A cordless snow blower is a portable snow removal device powered by rechargeable batteries, offering flexibility and freedom from electrical cords.",
     "review": null,
     "Location": "Belleve",
-    "Avalaible Days": 6,
     "Ratings": [
       2,
       2,
@@ -88,7 +84,7 @@
     ]
   },
   {
-    "Id": "Camping equipments- Tent and camping Gear",
+    "Id": "5",
     "Owner": "yashashree",
     "Phone": "1478523690",
     "Name": null,
@@ -100,7 +96,6 @@
     "Description": "Camping equipment like tents, sleeping bags, and camping stoves.",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
-    "Avalaible Days": 12,
     "Ratings": [
       2,
       2,
@@ -109,7 +104,7 @@
     ]
   },
   {
-    "Id": "Home - Rug and Carpet Cleaner",
+    "Id": "6",
     "Owner": "yashashree",
     "Phone": "1478523690",
     "Name": null,
@@ -121,7 +116,6 @@
     "Description": "Used to deep clean carpets and rugs.",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
-    "Avalaible Days": 10,
     "Ratings": [
       2,
       2,
@@ -130,37 +124,49 @@
     ]
   },
   {
-    "Id": "784c5270-3323-4fef-931c-fc7fac07e7f4",
+    "Id": "7",
     "Owner": "Enter Owner Name",
     "Phone": "Enter you mobile number",
     "Name": null,
     "Email": "Enter Email",
-    "img": "",
-    "Price": "Enter Price",
-    "Url": "Enter URL",
-    "Title": "Enter Title",
-    "Description": "Enter Description",
-    "review": null,
-    "Location": " Enter Location",
-    "Ratings": null
-  },
-  {
-    "Id": "3980bf98-e922-4d19-b384-dba8384db40a",
-    "Owner": "Enter Owner Name",
-    "Phone": "Enter you mobile number",
-    "Name": null,
-    "Email": "Enter Email",
-    "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71cbCSNVeDL.jpg\u0026tbnid=A_RK_agzWHO4SM\u0026vet=12ahUKEwj2jqXwkZiCAxXTMjQIHQaNAKgQ94IIKBR6BQgBEJwD..i\u0026imgrefurl=https%3A%2F%2Fwww.amazon.com%2FCUSIMAX-Tilt-Head-Stainless-Upgraded-Dishwasher-Attachment%2Fdp%2FB07CXDV9MH\u0026docid=HHCBV6Y6fd1HwM\u0026w=2000\u0026h=2000\u0026q=mixer\u0026ved=2ahUKEwj2jqXwkZiCAxXTMjQIHQaNAKgQ94IIKBR6BQgBEJwD",
-    "Price": "9.99",
-    "Url": "Enter URL",
-    "Title": "Mixer",
-    "Description": "ABC",
-    "review": null,
+    "img": "https://seattleu.instructure.com/courses/1610353",
+    "Price": "$6.99",
+    "Url": "https://github.com/Srishti1805/Team11_WebWizards/commits/master",
+    "Title": "DEF",
+    "Description": "DFGDSGSG",
+    "review": "OK",
     "Location": " Enter Location",
     "Ratings": [
-      2,
-      2,
-      4
+      3,
+      3,
+      4,
+      4,
+      5
+    ]
+  },
+  {
+    "Id": "8",
+    "Owner": "Dinesh",
+    "Phone": "1234567890",
+    "Name": null,
+    "Email": "rlnu",
+    "img": "https://github.com/Srishti1805/Team11_WebWizards/commit/9e382d658a206fe2585fdde228d138b84940ce5a",
+    "Price": "$12.99",
+    "Url": "https://seattleu.instructure.com/courses/1610353",
+    "Title": "ABC",
+    "Description": "DEF",
+    "review": null,
+    "Location": " Seattle",
+    "Ratings": [
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5
     ]
   }
 ]
