@@ -138,8 +138,7 @@ namespace ContosoCrafts.WebSite.Services
             productmodeldata.Url = data.Url;
             productmodeldata.Image = data.Image;
             productmodeldata.Location = data.Location;
-            productmodeldata.review = data.review;
-
+            
             // Save the updated data in the product
             SaveModifiedData(product);
             //Return the updated product data
