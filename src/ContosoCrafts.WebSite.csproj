@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

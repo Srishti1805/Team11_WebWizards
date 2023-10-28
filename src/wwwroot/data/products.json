@@ -104,65 +104,23 @@
     ]
   },
   {
+    "Description": "Used to deep clean carpets and rugs.",
+    "Email": "yashashree@example.com",
     "Id": "6",
+    "img": "https://www.thespruce.com/thmb/XtFLx0C14d2o2RKLaN1NuYcb5ZM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_hero_SQ_3SP4107087-1-4bfa65536f1c44689fa0cb0fd614dfb4.jpg",
+    "Location": "Seattle, Redmond, Belleve",
+    "Name": null,
     "Owner": "yashashree",
     "Phone": "1478523690",
-    "Name": null,
-    "Email": "yashashree@example.com",
-    "img": "https://www.thespruce.com/thmb/XtFLx0C14d2o2RKLaN1NuYcb5ZM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_hero_SQ_3SP4107087-1-4bfa65536f1c44689fa0cb0fd614dfb4.jpg",
     "Price": "$25.99",
-    "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA",
-    "Title": "Rug and Carpet Cleaner",
-    "Description": "Used to deep clean carpets and rugs.",
-    "review": null,
-    "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
       2,
       2,
       4,
       5
-    ]
-  },
-  {
-    "Id": "82542cd1-eed5-4a30-a8d5-f96b5c02e94b",
-    "Owner": "Din",
-    "Phone": "123456789",
-    "Name": "KRD",
-    "Email": "RLNU@su",
-    "img": "https://lucid.app/documents#/documents?folder_id=recent",
-    "Price": "$0.99",
-    "Url": "https://lucid.app/documents#/documents?folder_id=recent",
-    "Title": "ABC",
-    "Description": "XYZ",
-    "review": "SDFR",
-    "Location": "SEA",
-    "Ratings": [
-      4,
-      4,
-      5,
-      5,
-      5,
-      4,
-      3,
-      5,
-      5,
-      3,
-      3
-    ]
-  },
-  {
-    "Id": "676708b2-3d2a-46cf-9b5b-db9e15bea53d",
-    "Owner": "Dinesh",
-    "Phone": "1231234324045",
-    "Name": "ASD",
-    "Email": "QWE@QWE",
-    "img": "https://seattleu.instructure.com/courses/1610353/grades",
-    "Price": "$9.99",
-    "Url": "https://seattleu.instructure.com/courses/1610353/grades",
-    "Title": "ZXC",
-    "Description": "VBN",
+    ],
     "review": null,
-    "Location": "RED",
-    "Ratings": null
+    "Title": "Rug and Carpet Cleaner",
+    "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA"
   }
 ]
