@@ -200,7 +200,8 @@ namespace ContosoCrafts.WebSite.Services
                 Url = "Enter URL",
                 Image = "",
                 Location = " Enter Location",
-                Ratings = [0]
+                AvailableDays = 0,
+                Ratings = new int[] { 0 }
             };
 
             // Get the current set, and append the new record to it becuase IEnumerable does not have Add
