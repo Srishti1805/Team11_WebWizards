@@ -22,7 +22,7 @@
                 <tr>
                     <td>@product.Title</td>
                     <td>@product.Location</td>          <!-- Added details inside Location column for each product -->
-                    <td><a asp-page="Read" asp-route-id="@product.Id">Read&nbsp;&nbsp</a><a asp-page="Update" asp-route-id="@product.Id">&nbsp;Update</a></td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id">Read&nbsp;&nbsp</a><a asp-page="Update" asp-route-id="@product.Id">&nbsp;Update</a><a asp-page="Delete" asp-route-id="@product.Id">&nbsp;&nbsp;Delete</a></td>
                     
                 </tr>
             }
