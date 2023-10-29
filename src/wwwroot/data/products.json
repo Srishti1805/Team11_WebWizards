@@ -12,6 +12,7 @@
     "Description": "The Gridder is a gardening tool that rolls out perfectly spaced grids for planting.",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
+    "Available-Days":  "10" ,
     "Ratings": [
       5,
       5,
@@ -36,6 +37,7 @@
     "Description": "This is a mechanical device designed for cutting and maintaining the height of grass on lawns, gardens, or other outdoor areas.",
     "review": null,
     "Location": "Seattle, Belleve",
+    "Available-Days": "11",
     "Ratings": [
       2,
       2,
@@ -56,6 +58,7 @@
     "Description": "An ice cream maker is a kitchen appliance that churns and freezes liquid ice cream mixture to create homemade ice cream.",
     "review": null,
     "Location": "Seattle",
+    "Available-Days": "15",
     "Ratings": [
       2,
       2,
@@ -76,6 +79,7 @@
     "Description": "A cordless snow blower is a portable snow removal device powered by rechargeable batteries, offering flexibility and freedom from electrical cords.",
     "review": null,
     "Location": "Belleve",
+    "Available-Days": "12",
     "Ratings": [
       2,
       2,
@@ -96,6 +100,7 @@
     "Description": "Camping equipment like tents, sleeping bags, and camping stoves.",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
+    "Available-Days": "10",
     "Ratings": [
       2,
       2,
@@ -109,6 +114,7 @@
     "Id": "6",
     "img": "https://www.thespruce.com/thmb/XtFLx0C14d2o2RKLaN1NuYcb5ZM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_hero_SQ_3SP4107087-1-4bfa65536f1c44689fa0cb0fd614dfb4.jpg",
     "Location": "Seattle, Redmond, Belleve",
+    "Available-Days": "10",
     "Name": null,
     "Owner": "yashashree",
     "Phone": "1478523690",
