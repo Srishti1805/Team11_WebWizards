@@ -41,8 +41,9 @@ namespace ContosoCrafts.WebSite.Models
         /// Gets or sets the price of the product.
         /// </summary>
         [Required]
-        public float Price { get; set; } 
-        
+        public float Price { get; set; }
+
+        public int AvailableDays { get; set; }
 
         /// <summary>
         /// Gets or sets the URL of the tutorial video associated with the product.
