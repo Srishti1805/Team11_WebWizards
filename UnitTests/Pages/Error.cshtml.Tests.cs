@@ -1,5 +1,6 @@
 using System.Diagnostics;
 
+//Microsoft.AspNetCore namespaces
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -10,13 +11,17 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 
+// NUnit testing framework
 using NUnit.Framework;
 
+// Moq mocking framework
 using Moq;
 
+// Application specific namespaces
 using ContosoCrafts.WebSite.Pages;
 using ContosoCrafts.WebSite.Services;
 
+// Namespace for unit tests related to the Error page
 namespace UnitTests.Pages.Error
 {
     public class ErrorTests
