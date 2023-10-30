@@ -1,5 +1,6 @@
 using System.Linq;
 
+//Microsoft.AspNetCore namespaces
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -10,13 +11,17 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 
+// Moq mocking framework
 using Moq;
 
+// NUnit testing framework
 using NUnit.Framework;
 
+// Application specific namespaces
 using ContosoCrafts.WebSite.Pages;
 using ContosoCrafts.WebSite.Services;
 
+// Namespace for unit tests related to the Index page
 namespace UnitTests.Pages.Index
 {
     /// <summary>
@@ -87,16 +92,26 @@ namespace UnitTests.Pages.Index
         /// </summary>
         #region OnGet
         [Test]
+        ///<summary>
+        ///Unit test method to validate the behavior of the OnGet method
+        /// by checking if it returns the correct count of products.
+        /// </summary>
         public void OnGet_Valid_Test_Should_Return_Product_Count()
         {
             // Arrange
+            // No specific arrangement needed for this test.
 
             // Act
+            // Call the OnGet method to simulate the GET request.
+
             pageModel.OnGet();
+            // Get the count of products from the pageModel for assertion.
             var result = pageModel.Products.ToList().Count;
 
             // Assert
+            // Ensure that the ModelState of the pageModel is valid after executing OnGet.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            // Ensure that the number of products returned by the OnGet method is as expected (6 in this case).
             Assert.AreEqual(6, result);
         }
         #endregion OnGet
