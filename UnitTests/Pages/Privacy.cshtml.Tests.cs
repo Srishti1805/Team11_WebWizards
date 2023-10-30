@@ -1,5 +1,6 @@
 using System.Diagnostics;
 
+//Microsoft.AspNetCore namespaces
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -10,13 +11,17 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 
+// NUnit testing framework
 using NUnit.Framework;
 
+// Moq mocking framework
 using Moq;
 
+// Application specific namespaces
 using ContosoCrafts.WebSite.Pages;
 using ContosoCrafts.WebSite.Services;
 
+// Namespace for unit tests related to the Privacy page
 namespace UnitTests.Pages.Privacy
 {
     /// <summary>
@@ -43,6 +48,8 @@ namespace UnitTests.Pages.Privacy
         [SetUp]
         public void TestInitialize()
         {
+            //// Setting up the HttpContext, ActionContext, ViewData, TempData, and other required components
+            // for simulating a page request.
             httpContextDefault = new DefaultHttpContext()
             {
                 TraceIdentifier = "trace",
@@ -58,17 +65,22 @@ namespace UnitTests.Pages.Privacy
             viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
             tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
 
+            // Arrange necessary context and services for the test.
             pageContext = new PageContext(actionContext)
             {
                 ViewData = viewData,
                 HttpContext = httpContextDefault
             };
 
+            // Act
+            // Initialize the PrivacyModel and related components.
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
+            // Assert
+            // Ensure that the test components are properly initialized.
             var MockLoggerDirect = Mock.Of<ILogger<PrivacyModel>>();
             JsonFileProductService productService;
 
