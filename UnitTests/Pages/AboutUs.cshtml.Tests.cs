@@ -101,16 +101,23 @@ namespace UnitTests.Pages.AboutUs
         /// </summary>
         #region OnGet
         [Test]
+        /// <summary>
+        /// Unit test method to validate the behavior of the OnGet method.
+        /// </summary>
         public void OnGet_Valid_Test_Should_Return_True()
         {
             // Arrange
+            // No specific arrangement needed for this test.
 
             // Act
+            // Call the OnGet method to simulate the GET request.
             pageModel.OnGet();
 
             // Reset
+            // No reset action needed for this test.
 
             // Assert
+            // Ensure that the ModelState of the pageModel is valid after executing OnGet.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
         }
 
