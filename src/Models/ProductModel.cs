@@ -42,7 +42,9 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         [Required]
         public float Price { get; set; }
-
+        /// <summary>
+        /// Gets or sets the Available days of the product.
+        /// </summary>
         public int AvailableDays { get; set; }
 
         /// <summary>
