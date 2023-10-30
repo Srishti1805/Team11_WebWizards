@@ -88,16 +88,21 @@ namespace UnitTests.Pages.Privacy
         /// </summary>
         #region OnGet
         [Test]
+        ///<summary>
+        ///// This unit test method checks the behavior of the OnGet method
+        ///<summary>
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
             // Arrange
-
+            // Prepare the necessary data and context for the test.
             // Act
             pageModel.OnGet();
 
             // Reset
+            // Call the OnGet method to simulate the GET request.
 
             // Assert
+            // Ensure that the ModelState of the pageModel is valid after executing OnGet.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
         }
 
