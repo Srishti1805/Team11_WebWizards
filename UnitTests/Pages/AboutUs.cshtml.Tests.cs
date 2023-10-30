@@ -30,6 +30,7 @@ namespace UnitTests.Pages.AboutUs
     public class AboutUsTests
     {
         #region TestSetup
+        // Static variables to store various components needed for testing
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -48,13 +49,18 @@ namespace UnitTests.Pages.AboutUs
         [SetUp]
         public void TestInitialize()
         {
+            // Setting up the HttpContext, ActionContext, ViewData, TempData, and other required components
+            // for simulating a page request.
             httpContextDefault = new DefaultHttpContext()
             {
                 TraceIdentifier = "trace",
                 //RequestServices = serviceProviderMock.Object,
             };
+            // Arrange necessary context and services for the test.
             httpContextDefault.HttpContext.TraceIdentifier = "trace";
 
+            // Act
+            // Initialize the About_UsModel and related components.
             modelState = new ModelStateDictionary();
 
             actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
@@ -79,6 +85,8 @@ namespace UnitTests.Pages.AboutUs
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
+            // Assert
+            // Ensure that the test components are properly initialized.
             pageModel = new About_UsModel()
             {
                 PageContext = pageContext,
