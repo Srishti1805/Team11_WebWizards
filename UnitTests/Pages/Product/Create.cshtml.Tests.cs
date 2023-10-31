@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 using Moq;
 
@@ -75,5 +76,27 @@ namespace UnitTests.Pages.Product.Create
             };
         }
         #endregion TestSetup
+
+        #region OnGet
+        [Test]
+        /// <summary>
+        /// test for OnGet in Create page
+        /// </summary>
+        public void OnGet_Valid_Test_Should_Return_Product_Identifier()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet();
+            var result = pageModel.ProductService.GetAllData().Last().Id;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("7", result);
+
+            //Reset
+            pageModel.ProductService.DeleteData("7");
+        }
+        #endregion OnGet
     }
 }
