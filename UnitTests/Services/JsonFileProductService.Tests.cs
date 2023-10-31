@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -15,13 +14,12 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
+using System.Linq;
 
-namespace UnitTests.Pages.Product.Update
+namespace UnitTests.Pages.Product.AddRating
 {
-    /// <summary>
-    /// This class contains unit tests for the UpdateModel class in the "Pages/Product/Update" namespace.
-    /// </summary>
-    public class UpdateTests
+    public class JsonFileProductServiceTests
     {
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
@@ -34,11 +32,8 @@ namespace UnitTests.Pages.Product.Update
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
-        public static UpdateModel pageModel;
+        public static ReadModel pageModel;
 
-        /// <summary>
-        /// Initialises the product services and parameters for the test
-        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -70,56 +65,171 @@ namespace UnitTests.Pages.Product.Update
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-            pageModel = new UpdateModel(productService)
+            pageModel = new ReadModel(productService)
             {
             };
         }
 
         #endregion TestSetup
 
+        #region AddRating
         /// <summary>
-        /// Test for OnGet for the update page
+        /// REST Get Products data
+        /// POST a valid rating
+        /// Test that the last data that was added was added correctly
         /// </summary>
-        #region OnGet
         [Test]
-        public void OnGet_Valid_Should_Return_Product_Identifier()
+        public void AddRating_Valid_Product_Id_Rating_null_Should_Return_new_Array()
+        {
+            // Arrange
+            // Get the Last data item
+            var data = pageModel.ProductService.GetAllData().Last();
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating(data.Id, 0);
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        /// <summary>
+        /// REST POST data that doesn't fit the constraints defined in function
+        /// Test if it Adds
+        /// Returns False because it wont add
+        /// </summary>
+        [Test]
+        public void AddRating_Invalid_Product_ID_Not_Present_Should_Return_False()
         {
             // Arrange
 
             // Act
-            pageModel.OnGet("Gardening-gridder");
-            var result = pageModel.Product;
-
-            // Reset
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating("1000", 5);
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.NotNull(result);
+            Assert.AreEqual(false, result);
         }
-        #endregion OnGet
 
         /// <summary>
-        /// Test for OnPost for the update page
+        /// REST get result of false ID entered data
+        /// Checks if the result equals the added data
+        /// Should return false
         /// </summary>
-        #region OnPost
         [Test]
-        public void OnPost_Valid_Should_Update_and_Return_Product_Details()
+        public void AddRating_InValid_Product_ID_Null_Should_Return_False()
         {
             // Arrange
-            pageModel.OnGet("Gardening-gridder");
-            string temp = pageModel.Product.Price;
 
             // Act
-            pageModel.Product.Price = "20";
-            pageModel.OnPost();
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating(null, 1);
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("20", pageModel.Product.Price);
-
-            // Reset
-            pageModel.Product.Price = temp;
+            Assert.AreEqual(false, result);
         }
-        #endregion OnPost
+
+        /// <summary>
+        /// REST Gets First Node of original data
+        /// Caches the length of how many votes were made
+        /// POST a new rating of 5 stars
+        /// Gets first node of new data
+        /// Checks origional data length against the new data length +1
+        /// Checks if last data point was the one that was added
+        /// </summary>
+        [Test]
+        public void AddRating_Valid_Product_Rating_5_Should_Return_True()
+        {
+            // Arrange
+            // Get the First data item
+            var data = pageModel.ProductService.GetAllData().First();
+            // Store the original Rating list length
+            var countOriginal = data.Ratings.Length;
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating(data.Id, 5);
+            // Get the updated First data item
+            var dataNewList = pageModel.ProductService.GetAllData().First();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(countOriginal + 1, dataNewList.Ratings.Length);
+            Assert.AreEqual(5, dataNewList.Ratings.Last());
+        }
+
+        /// <summary>
+        /// REST get original data list
+        /// Post rating to the data where number of stars are invalid
+        /// Resturns false for invalid data point
+        /// </summary>
+        [Test]
+        public void AddRating_InValid_Product_Rating_more_5_Should_Return_False()
+        {
+            // Arrange
+            // Get the First data item
+            var data = pageModel.ProductService.GetAllData().First();
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating(data.Id, 6);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        /// <summary>
+        /// REST get original ratings
+        /// POST a rating against the constraint <=0
+        /// Compares rating to see if added corrctly
+        /// Should return false
+        /// </summary>
+        [Test]
+        public void AddRating_InValid_Product_Rating_less_than_0_Should_Return_False()
+        {
+            // Arrange
+            // Get the First data item
+            var data = pageModel.ProductService.GetAllData().First();
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating(data.Id, -2);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        /// <summary>
+        /// REST get original data
+        /// Cache length of data
+        /// POST new valid data point
+        /// GET new data
+        /// Test if equal count is original + 1, and new data should be equal
+        /// Test if the correct valid data point was added
+        /// </summary>
+        [Test]
+        public void AddRating_Valid_Product_Rating_greater_than_0_Should_Return_True()
+        {
+            // Arrange
+            // Get the First data item
+            var data = pageModel.ProductService.GetAllData().First();
+
+            // Store the original Rating list length for comparison later
+            var countOriginal = data.Ratings.Length;
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = pageModel.ProductService.AddRating(data.Id, 1);
+            // Get the updated First data item for comparison
+            var dataNewList = pageModel.ProductService.GetAllData().First();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(countOriginal + 1, dataNewList.Ratings.Length);
+            Assert.AreEqual(1, dataNewList.Ratings.Last());
+        }
+        #endregion AddRating
+
+
     }
 }
