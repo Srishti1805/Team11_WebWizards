@@ -13,13 +13,13 @@
         color: ghostwhite
     }
 </style>
-
+<!-- This is an HTML form using ASP.NET Core Razor syntax to edit and save details of a product. It includes input fields for various product attributes and a submit button. -->
 <div class="container">
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @Html.HiddenFor(x => x.Product.Id)
         <div class="form-group">
-            <label asp-for="Product.Id" class="control-label"></label>
+            <label asp-for="Product.Id" class="control-label"></label>nother 30
             <input asp-for="Product.Id" class="form-control" />
             <span asp-validation-for="Product.Id" class="text-danger"></span>
         </div>
