@@ -16,12 +16,12 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 
-namespace UnitTests.Pages.Product.Update
+namespace UnitTests.Pages.Product.Create
 {
     /// <summary>
-    /// This class contains unit tests for the UpdateModel class in the "Pages/Product/Update" namespace.
+    /// This class contains unit tests for the CreateModel class in the "Pages/Product/Create" namespace.
     /// </summary>
-    public class UpdateTests
+    public class CreateTests
     {
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
@@ -99,7 +99,7 @@ namespace UnitTests.Pages.Product.Update
         #endregion OnGet
 
         /// <summary>
-        /// Test for OnPost for the update page
+        /// Test for OnPost for the create page
         /// </summary>
         #region OnPost
         [Test]
