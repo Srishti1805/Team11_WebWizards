@@ -107,15 +107,15 @@ namespace UnitTests.Pages.Product.Update
         {
             // Arrange
             pageModel.OnGet("Gardening-gridder");
-            string temp = pageModel.Product.Price;
+            float temp = pageModel.Product.Price;
 
             // Act
-            pageModel.Product.Price = "20";
+            pageModel.Product.Price = 20;
             pageModel.OnPost();
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("20", pageModel.Product.Price);
+            Assert.AreEqual(20, pageModel.Product.Price);
 
             // Reset
             pageModel.Product.Price = temp;
