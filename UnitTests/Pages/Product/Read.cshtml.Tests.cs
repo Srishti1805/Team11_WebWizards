@@ -81,12 +81,12 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("Gardening-Grass cutter");
+            pageModel.OnGet("1");
             var result = pageModel.Product.Title;
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Grass Cutter", result);
+            Assert.AreEqual("Gridder", result);
         }
         #endregion OnGet
     }
