@@ -87,7 +87,7 @@ namespace UnitTests.Pages.Product.Update
             // Arrange
 
             // Act
-            pageModel.OnGet("Gardening-gridder");
+            pageModel.OnGet("1");
             var result = pageModel.Product;
 
             // Reset
@@ -106,7 +106,7 @@ namespace UnitTests.Pages.Product.Update
         public void OnPost_Valid_Should_Update_and_Return_Product_Details()
         {
             // Arrange
-            pageModel.OnGet("Gardening-gridder");
+            pageModel.OnGet("1");
             float temp = pageModel.Product.Price;
 
             // Act
