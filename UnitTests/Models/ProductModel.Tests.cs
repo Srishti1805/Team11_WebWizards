@@ -16,12 +16,12 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 
-namespace UnitTests.Pages.Product.Update
+namespace UnitTests.Models.Product
 {
     /// <summary>
-    /// This class contains unit tests for the UpdateModel class in the "Pages/Product/Update" namespace.
+    /// This class contains unit tests for the namespace.
     /// </summary>
-    public class UpdateTests
+    public class ProductModelTests
     {
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
@@ -34,7 +34,7 @@ namespace UnitTests.Pages.Product.Update
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
-        public static UpdateModel pageModel;
+        public static ReadModel pageModel;
 
         /// <summary>
         /// Initialises the product services and parameters for the test
@@ -70,56 +70,11 @@ namespace UnitTests.Pages.Product.Update
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-            pageModel = new UpdateModel(productService)
+            pageModel = new ReadModel(productService)
             {
             };
         }
 
         #endregion TestSetup
-
-        /// <summary>
-        /// Test for OnGet for the update page
-        /// </summary>
-        #region OnGet
-        [Test]
-        public void OnGet_Valid_Should_Return_Product_Identifier()
-        {
-            // Arrange
-
-            // Act
-            pageModel.OnGet("Gardening-gridder");
-            var result = pageModel.Product;
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.NotNull(result);
-        }
-        #endregion OnGet
-
-        /// <summary>
-        /// Test for OnPost for the update page
-        /// </summary>
-        #region OnPost
-        [Test]
-        public void OnPost_Valid_Should_Update_and_Return_Product_Details()
-        {
-            // Arrange
-            pageModel.OnGet("Gardening-gridder");
-            string temp = pageModel.Product.Price;
-
-            // Act
-            pageModel.Product.Price = "20";
-            pageModel.OnPost();
-
-            // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("20", pageModel.Product.Price);
-
-            // Reset
-            pageModel.Product.Price = temp;
-        }
-        #endregion OnPost
     }
 }
