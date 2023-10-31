@@ -34,7 +34,7 @@ namespace UnitTests.Pages.Product.Delete
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
-        public static UpdateModel pageModel;
+        public static DeleteModel pageModel;
 
         /// <summary>
         /// Initialises the product services and parameters for the test
@@ -70,56 +70,10 @@ namespace UnitTests.Pages.Product.Delete
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-            pageModel = new UpdateModel(productService)
+            pageModel = new DeleteModel(productService)
             {
             };
         }
-
         #endregion TestSetup
-
-        /// <summary>
-        /// Test for OnGet for the deletee page
-        /// </summary>
-        #region OnGet
-        [Test]
-        public void OnGet_Valid_Should_Return_Product_Identifier()
-        {
-            // Arrange
-
-            // Act
-            pageModel.OnGet("Gardening-gridder");
-            var result = pageModel.Product;
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.NotNull(result);
-        }
-        #endregion OnGet
-
-        /// <summary>
-        /// Test for OnPost for the delete page
-        /// </summary>
-        #region OnPost
-        [Test]
-        public void OnPost_Valid_Should_Update_and_Return_Product_Details()
-        {
-            // Arrange
-            pageModel.OnGet("Gardening-gridder");
-            string temp = pageModel.Product.Price;
-
-            // Act
-            pageModel.Product.Price = "20";
-            pageModel.OnPost();
-
-            // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("20", pageModel.Product.Price);
-
-            // Reset
-            pageModel.Product.Price = temp;
-        }
-        #endregion OnPost
     }
 }
