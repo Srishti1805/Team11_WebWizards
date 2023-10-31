@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -187,9 +188,11 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns></returns>
         public ProductModel CreateData()
         {
+            string s = GetAllData().Last().Id;
+            int x = Int32.Parse(s);
             var data = new ProductModel()
             {
-                Id = System.Guid.NewGuid().ToString(),
+                Id = (x + 1).ToString(), //System.Guid.NewGuid().ToString(),
                 Owner = "Enter Owner Name",
                 Phone = "Enter you mobile number",
                 Name=null,
