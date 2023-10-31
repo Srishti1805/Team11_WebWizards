@@ -16,12 +16,12 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 
-namespace UnitTests.Pages.Product.Update
+namespace UnitTests.Pages.Product.Delete
 {
     /// <summary>
-    /// This class contains unit tests for the UpdateModel class in the "Pages/Product/Update" namespace.
+    /// This class contains unit tests for the DeleteModel class in the "Pages/Product/Delete" namespace.
     /// </summary>
-    public class UpdateTests
+    public class DeleteTests
     {
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
@@ -78,7 +78,7 @@ namespace UnitTests.Pages.Product.Update
         #endregion TestSetup
 
         /// <summary>
-        /// Test for OnGet for the update page
+        /// Test for OnGet for the deletee page
         /// </summary>
         #region OnGet
         [Test]
@@ -99,7 +99,7 @@ namespace UnitTests.Pages.Product.Update
         #endregion OnGet
 
         /// <summary>
-        /// Test for OnPost for the update page
+        /// Test for OnPost for the delete page
         /// </summary>
         #region OnPost
         [Test]
