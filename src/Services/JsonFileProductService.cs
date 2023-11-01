@@ -122,10 +122,10 @@ namespace ContosoCrafts.WebSite.Services
             // Read the data for selected product
             var product = GetProducts();
             var productmodeldata = product.FirstOrDefault(x => x.Id.Equals(data.Id));
-            if (productmodeldata == null)
-            {
-                return null;
-            }
+            //if (productmodeldata == null)
+            //{
+            //    return null;
+            //}
 
             // Update the selected data into the same fields
             productmodeldata.Id = data.Id;
