@@ -15,6 +15,8 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
+using System.Linq;
 
 namespace UnitTests.Pages.Product.Delete
 {
@@ -75,5 +77,48 @@ namespace UnitTests.Pages.Product.Delete
             };
         }
         #endregion TestSetup
+
+        #region OnGet
+        [Test]
+        /// <summary>
+        /// test for OnGet of delete page
+        /// </summary>
+        public void OnGet_Valid_Test_Should_Return_Product_Identifier()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("1");
+            var result = pageModel.Product.Title;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("Gridder", result);
+        }
+        #endregion OnGet
+
+        #region OnPost
+        [Test]
+        /// <summary>
+        /// test for OnGet of delete page
+        /// </summary>
+        public void OnPost_Valid_Should_Delete_Product()
+        {
+            // Arrange
+            var dataSet = pageModel.ProductService.GetProducts();
+            pageModel.OnGet("1");
+
+            // Act
+            pageModel.OnPost();
+            var result = pageModel.ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals("1"));
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(null, result);
+
+            // Reset
+            pageModel.ProductService.SaveModifiedData(dataSet);
+        }
+        #endregion OnPost
     }
 }
