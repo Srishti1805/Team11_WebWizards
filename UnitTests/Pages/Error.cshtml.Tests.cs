@@ -24,6 +24,9 @@ using ContosoCrafts.WebSite.Services;
 // Namespace for unit tests related to the Error page
 namespace UnitTests.Pages.Error
 {
+    /// <summary>
+    /// This class contains unit tests for the errortesting for the website
+    /// </summary>
     public class ErrorTests
     {
         #region TestSetup
