@@ -17,7 +17,7 @@ using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
 
-namespace UnitTests.Pages.Product.AddRating
+namespace UnitTests.Services.JsonFileProductServiceTest
 {
     /// <summary>
     /// This class contains unit tests for JsonFileProductService
