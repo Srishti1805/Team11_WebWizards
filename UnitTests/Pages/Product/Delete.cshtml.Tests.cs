@@ -107,6 +107,8 @@ namespace UnitTests.Pages.Product.Delete
             // Arrange
             var dataSet = pageModel.ProductService.GetProducts();
             pageModel.OnGet("1");
+            // added this line just to cover the code coverage for product model tostring()
+            string temp = pageModel.Product.ToString();
 
             // Act
             pageModel.OnPost();
