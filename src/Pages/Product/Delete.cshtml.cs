@@ -17,7 +17,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Defualt Construtor
+        /// Default Construtor
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="productService"></param>
