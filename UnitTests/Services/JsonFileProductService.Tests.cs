@@ -19,6 +19,9 @@ using System.Linq;
 
 namespace UnitTests.Pages.Product.AddRating
 {
+    /// <summary>
+    /// This class contains unit tests for JsonFileProductService
+    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
