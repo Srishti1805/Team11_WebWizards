@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 //Microsoft.AspNetCore namespaces
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
