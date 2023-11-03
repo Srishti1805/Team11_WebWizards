@@ -153,8 +153,8 @@ ul {
     background: linear-gradient(110deg, #a6c9f7 50%, #252152 55%);
 }
 .bg-footer {
-    background: -webkit-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
-    background: -o-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
-    background: -moz-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
-    background: linear-gradient(110deg, #252152 60%, #a6c9f7 60%);
+    background: -webkit-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
+    background: -o-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
+    background: -moz-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
+    background: linear-gradient(110deg, #252152 50%, #a6c9f7 55%);
 }
