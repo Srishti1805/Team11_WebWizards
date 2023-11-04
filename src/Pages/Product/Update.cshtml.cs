@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿//Microsoft.AspNetCore namespaces
+using System.Linq;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+// Namespace for Product related to the Update page
 namespace ContosoCrafts.WebSite.Pages.Product
 
 {
