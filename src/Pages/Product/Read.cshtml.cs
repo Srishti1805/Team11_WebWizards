@@ -1,10 +1,11 @@
 using System.Linq;
-
+//Microsoft.AspNetCore namespaces
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
+// Namespace for Product related to the Read page
 namespace ContosoCrafts.WebSite.Pages.Product
 {
     public class ReadModel : PageModel
