@@ -7,21 +7,24 @@
     ViewData["Title"] = "Read page";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    img.card-img {
-        width: 512px;
-        height: auto;
-    }
-    body{
-        color: ghostwhite
-    }
-    .checked {
-        color: orange;
-    }
-</style>
+
 
 <!-- This is a Razor view displaying details of a product, including its title, image, description, price, availability, tutorial link, owner information, reviews, and a delete button. -->
 <div class="content">
+    <style>
+        img.card-img {
+            width: 512px;
+            height: auto;
+        }
+
+        body {
+            color: ghostwhite
+        }
+
+        .checked {
+            color: orange;
+        }
+    </style>
     <div class="row">
         <div class="col-md-8">
             <h1 class="title" id="productTitle">@Model.Product.Title</h1>
@@ -53,4 +56,4 @@
             <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
         </div>
     </div>
- </div>
+</div>
