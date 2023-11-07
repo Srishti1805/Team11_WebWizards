@@ -45,8 +45,7 @@ namespace ContosoCrafts.WebSite.Services
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
-                    }
-                  );
+                    });
             }
         }
         public IEnumerable<ProductModel> GetAllData()
@@ -81,6 +80,7 @@ namespace ContosoCrafts.WebSite.Services
 
             // Check if the product exist, if not return false
             var data = product.FirstOrDefault(x => x.Id.Equals(productId));
+
             if (data == null)
             {
                 return false;
@@ -102,7 +102,9 @@ namespace ContosoCrafts.WebSite.Services
             //}
             // Save the ratings to a rating array
             var ratings = data.Ratings.ToList();
+
             ratings.Add(rating);
+
             data.Ratings = ratings.ToArray();
 
             // Save the updated data in the product
@@ -120,6 +122,7 @@ namespace ContosoCrafts.WebSite.Services
         {
             // Read the data for selected product
             var product = GetProducts();
+
             var productmodeldata = product.FirstOrDefault(x => x.Id.Equals(data.Id));
             //if (productmodeldata == null)
             //{
