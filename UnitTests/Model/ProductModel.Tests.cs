@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ContosoCrafts.WebSite.Models;
+﻿using ContosoCrafts.WebSite.Models;
 using NUnit.Framework;
 
 namespace UnitTests.Model.Tests
@@ -27,6 +22,9 @@ namespace UnitTests.Model.Tests
 
         private const string MockLocation = "Seattle, Redmond, Belleve";
 
+        /// <summary>
+        /// Tests the get set functionality of Product Model
+        /// </summary>
         [Test]
         public void ToString_ReturnsJson()
         {
