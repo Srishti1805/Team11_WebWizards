@@ -1,58 +1,134 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ContosoCrafts.WebSite.Models;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+
+using Moq;
+
 using NUnit.Framework;
 
-namespace UnitTests.Model.Tests
+using ContosoCrafts.WebSite.Pages.Product;
+using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Controllers;
+using System.Linq;
+
+namespace UnitTests.Controller.Tests
 {
     /// <summary>
     /// This class contains unit tests for the ProductModel
     /// </summary>
-    public class ProductModelTests
+    public class ProductsControllerTests
     {
-        private const string MockId = "1";
+        #region TestSetup
+        public static IUrlHelperFactory urlHelperFactory;
+        public static DefaultHttpContext httpContextDefault;
+        public static IWebHostEnvironment webHostEnvironment;
+        public static ModelStateDictionary modelState;
+        public static ActionContext actionContext;
+        public static EmptyModelMetadataProvider modelMetadataProvider;
+        public static ViewDataDictionary viewData;
+        public static TempDataDictionary tempData;
+        public static PageContext pageContext;
 
-        private const string MockTitle = "Gridder";
-
-        private const string MockOwner = "Srishti";
-
-        private const string MockDescription = "The Gridder is a gardening tool that rolls out perfectly spaced grids for planting.";
-
-        private const string MockUrl = "https://www.youtube.com/watch?v=SxygEWYwAB8";
-
-        private const string MockImage = "https://i.pinimg.com/564x/b2/4a/4e/b24a4e95612802454143fa54fd999741.jpg";
-
-        private const string MockLocation = "Seattle, Redmond, Belleve";
-
-        [Test]
-        public void ToString_ReturnsJson()
+        public static ReadModel pageModel;
+        /// <summary>
+        /// Test Setup
+        /// </summary>
+        [SetUp]
+        public void TestInitialize()
         {
-            // Arrange
-            var product = new ProductModel
+            httpContextDefault = new DefaultHttpContext()
             {
-                Id = MockId,
-                Title = MockTitle,
-                Owner = MockOwner,
-                Url = MockUrl,
-                Image = MockImage,
-                Location = MockLocation
+                //RequestServices = serviceProviderMock.Object,
             };
 
-            // Act
-            var jsonString = product.ToString();
+            modelState = new ModelStateDictionary();
 
-            // Assert
-            Assert.IsNotEmpty(jsonString);
-            Assert.IsTrue(jsonString.Contains(product.Id));
-            Assert.IsTrue(jsonString.Contains(product.Title));
-            Assert.IsTrue(jsonString.Contains(product.Owner));
-            Assert.IsTrue(jsonString.Contains(product.Url));
-            Assert.IsTrue(jsonString.Contains(product.Image));
-            Assert.IsTrue(jsonString.Contains(product.Location));
+            actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
 
+            modelMetadataProvider = new EmptyModelMetadataProvider();
+            viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
+
+            pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData,
+            };
+
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
+            JsonFileProductService productService;
+
+            productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+
+            pageModel = new ReadModel(productService)
+            {
+            };
         }
+        #endregion
+
+        #region
+        /// <summary>
+        /// Creates a default datapoint of ProductServices
+        /// Creates a new datapoint of the a ProductsController with datapoint
+        /// Gets the whole datapoint
+        /// Tests if Equal
+        /// </summary>
+        [Test]
+        public void get_AllData_Present_Should_Return_True()
+        {
+            //arrange
+            
+
+            //Act
+            //store datapoint as a ProductController datapoint
+            var newData = new ProductsController(pageModel.ProductService).Get().First();
+
+            var response = pageModel.ProductService.GetAllData().First();
+
+            //Assert
+            Assert.AreEqual(newData.Id, response.Id);
+        }
+        #endregion
+
+        #region
+        /// <summary>
+        /// Creates a default datapoint of ProductServices
+        /// Creates a new datapoint of the a ProductsController with datapoint
+        /// Gets the whole datapoint
+        /// Tests if Added dataPoint equals the created one
+        /// </summary>
+        [Test]
+        public void Patch_AddValid_Rating_Should_Return_True()
+        {
+            //arrange
+            
+
+            //Act
+            //store datapoint as a ProductController datapoint
+            var newData = new ProductsController(pageModel.ProductService);
+            //Create a newRating datapoint to "Patch to theDataController"
+            var newRating = new ProductsController.RatingRequest();
+            {
+                newRating.ProductId = newData.ProductService.GetAllData().Last().Id;
+                newRating.Rating = 5;
+            }
+
+            //Act
+            newData.Patch(newRating);
+
+            //Assert
+            Assert.AreEqual(newData.ProductService.GetAllData().Last().Id, newRating.ProductId);
+        }
+        #endregion
     }
 }
