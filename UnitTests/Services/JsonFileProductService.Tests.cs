@@ -14,7 +14,6 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
-using ContosoCrafts.WebSite.Models;
 using System.Linq;
 
 namespace UnitTests.Services.JsonFileProductServiceTest
@@ -37,6 +36,9 @@ namespace UnitTests.Services.JsonFileProductServiceTest
 
         public static ReadModel pageModel;
 
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
