@@ -45,7 +45,8 @@ namespace ContosoCrafts.WebSite.Services
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
-                    });
+                    }
+                  );
             }
         }
         public IEnumerable<ProductModel> GetAllData()
