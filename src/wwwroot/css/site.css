@@ -65,13 +65,9 @@ a {
 }
 
 body {
-
-    /*Updated the background colour */
-    background-color: black;
-
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-
+    background-image: url(https://directlinedev.com/media/services/service/background/background_11_nQJIc9J.normal.jpeg);
 }
 
 .btn-primary {
