@@ -4,27 +4,28 @@
     ViewData["Title"] = "Index page";
 }
 
-<div class="container"> 
-    <!-- Added a create button at the top of the index page.-->
-    <a asp-page="Create" class="btn btn-link">+ Create</a>
-    <!--Table to display Title,Location and CRUDi actions for each product-->
+<div class="index-container">
+    <a asp-page="Create" class="btn btn-create">+ Create</a>
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Location</th>    <!--Added a new column named Location-->
-                <th>Action</th>
-                
+                <th class="table-heading">Title</th>
+                <th class="table-heading">Location</th>
+                <th class="table-heading">Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var product in Model.Products)
-            { 
+            {
                 <tr>
-                    <td>@product.Title</td>             <!-- Added details inside Title column for each product-->
-                    <td>@product.Location</td>          <!-- Added details inside Location column for each product -->
-                    <td><a asp-page="Read" asp-route-id="@product.Id">Read&nbsp;&nbsp</a><a asp-page="Update" asp-route-id="@product.Id">&nbsp;Update</a><a asp-page="Delete" asp-route-id="@product.Id">&nbsp;&nbsp;Delete</a></td>
-                    
+                    <td class="table-field">@product.Title</td>
+                    <td class="table-field">@product.Location</td>
+                    <td class="table-field">
+                        <a asp-page="Read" asp-route-id="@product.Id" class="btn-action">Read</a>
+                        <a asp-page="Update" asp-route-id="@product.Id" class="btn-action">Update</a>
+                        <a asp-page="Delete" asp-route-id="@product.Id" class="btn-action">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>
