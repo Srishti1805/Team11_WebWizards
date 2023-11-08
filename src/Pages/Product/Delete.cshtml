@@ -7,43 +7,41 @@
     ViewData["Title"] = "Delete page";
 }
 
-<h1>Delete</h1>
+<h1 class="delete-header">Delete</h1>
 
 <!-- This is a form in a Razor view for deleting a product, displaying details such as title, description, URL, and image with disabled input fields, along with a confirmation message and a delete button. -->
 <!--Added style in the class="container" as per html style guildlines-->
-<div class="container">
-    <div style="color: ghostwhite;">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.HiddenFor(x => x.Product.Id)
+<div class="form-container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(x => x.Product.Id)
 
-            <div class="form-group">
-                <label asp-for="Product.Title" class="control-label"></label>
-                <input asp-for="Product.Title" class="form-control" disabled />
-            </div>
+        <div class="form-group">
+            <label asp-for="Product.Title" class="control-label"></label>
+            <input asp-for="Product.Title" class="form-control" disabled />
+        </div>
 
-            <div class="form-group">
-                <label asp-for="Product.Description" class="control-label"></label>
-                <input asp-for="Product.Description" class="form-control" disabled />
-            </div>
+        <div class="form-group">
+            <label asp-for="Product.Description" class="control-label"></label>
+            <input asp-for="Product.Description" class="form-control" disabled />
+        </div>
 
-            <div class="form-group">
-                <label asp-for="Product.Url" class="control-label"></label>
-                <input asp-for="Product.Url" class="form-control" disabled />
-            </div>
+        <div class="form-group">
+            <label asp-for="Product.Url" class="control-label"></label>
+            <input asp-for="Product.Url" class="form-control" disabled />
+        </div>
 
-            <div class="form-group">
-                <label asp-for="Product.Image" class="control-label"></label>
-                <input asp-for="Product.Image" class="form-control" disabled />
-            </div>
+        <div class="form-group">
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" disabled />
+        </div>
 
-            <p>Are you sure you want to Delete this item?</p>
+        <p>Are you sure you want to Delete this item?</p>
 
-            <div class="form-group">
-                <input type="submit" value="Delete" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
 
 @section Scripts {
