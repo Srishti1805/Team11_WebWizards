@@ -18,6 +18,7 @@ for details on configuring this project to bundle and minify static web assets. 
     height: 100px;
     font-family: 'Pantra', sans-serif;
     background: #fbfafd;
+    /*color: black;*/
 }
 
 .card-columns .card-img {
@@ -37,7 +38,16 @@ for details on configuring this project to bundle and minify static web assets. 
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-.card-   columns .card:hover {
+/*.modal-title {
+    color: black;
+}
+
+.modal-body .card .card-body .card-text {
+    color: black;
+}
+*/
+
+.card-columns .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
 }
@@ -180,4 +190,33 @@ ul {
 .team-member-name {
     color: ghostwhite;
     text-align: center; /* Center the team member names */
+}
+
+.text-danger {
+    color: red;
+}
+
+.form-container {
+    color: ghostwhite;
+}
+
+.delete-header {
+    color: ghostwhite;
+}
+
+.btn-create {
+    color: whitesmoke;
+    background-color: #007bff;
+    border-color: #252152;
+}
+
+.table-heading {
+    color: ghostwhite;
+    text-align: center;
+}
+
+.table-field {
+    color: whitesmoke;
+    /*text-align: center;*/
+    font-weight: 400;
 }
