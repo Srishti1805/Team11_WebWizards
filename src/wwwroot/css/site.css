@@ -67,6 +67,7 @@ a {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    /* Background image */
     background-image: url(https://directlinedev.com/media/services/service/background/background_11_nQJIc9J.normal.jpeg);
 }
 
