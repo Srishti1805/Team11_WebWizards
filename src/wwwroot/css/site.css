@@ -164,3 +164,20 @@ ul {
 .privacy-content {
     color: ghostwhite;
 }
+
+.about_us-header {
+    color: ghostwhite;
+}
+
+.about_us-content {
+    color: ghostwhite;
+}
+
+.team-member-image {
+    max-width: 256px; /* Set a max width for team member images */
+}
+
+.team-member-name {
+    color: ghostwhite;
+    text-align: center; /* Center the team member names */
+}
