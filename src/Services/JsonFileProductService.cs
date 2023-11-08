@@ -17,7 +17,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Contructor for initializing the service with the web host environment.
         /// </summary>
-        /// <param name="webHostEnvironment"></param>
+        /// <param name = "webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
@@ -64,8 +64,8 @@ namespace ContosoCrafts.WebSite.Services
         /// productId (string): The unique identifier of the product.
         /// rating (int): The rating to be added to the product.
         /// </summary>
-        /// <param name="productId"></param>
-        /// <param name="rating"></param>
+        /// <param name = "productId"></param>
+        /// <param name = "rating"></param>
         public bool AddRating(string productId, int rating)
         {
             var products = GetProducts();
@@ -116,7 +116,7 @@ namespace ContosoCrafts.WebSite.Services
         /// Update the fields in the product
         /// Save the modified data
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name = "data"></param>
         /// <returns></returns>
         public ProductModel UpdateData(ProductModel data)
         {
@@ -151,7 +151,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Save the products data to JSON
         /// </summary>
-        /// <param name="products">The collection of products to be saved.</param>
+        /// <param name = "products">The collection of products to be saved.</param>
         public void SaveModifiedData(IEnumerable<ProductModel> products)
         {
             // Serialize the updated products collection and write it back to the JSON file
