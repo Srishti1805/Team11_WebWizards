@@ -156,3 +156,11 @@ ul {
     background: -moz-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
     background: linear-gradient(110deg, #252152 50%, #a6c9f7 55%);
 }
+
+.privacy-header {
+    color: ghostwhite;
+}
+
+.privacy-content {
+    color: ghostwhite;
+}
