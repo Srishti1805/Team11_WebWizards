@@ -27,17 +27,20 @@
         }
     </style>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <h1 class="card-heading" id="productTitle">@Model.Product.Title</h1>
 
             <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
 
             <h4 class="card-heading"><br />Description</h4>
             <p class="card-text">@Model.Product.Description</p>
+
             <h4 class="card-heading">Price</h4>
             <p class="card-text"><i><b>$@Model.Product.Price</b></i></p>
+
             <h4 class="card-heading">Availability</h4>
             <p class="card-text">@Model.Product.Location</p>
+
             <h4 class="card-heading">Tutorial:</h4>
             <p class="card-text"><a href="@Model.Product.Url">Learn more about @Model.Product.Title</a></p>
 
@@ -46,6 +49,7 @@
 
             <h4 class="card-heading">Reviews</h4>
             <p class="card-text">@Model.Product.review</p>
+
             <p class="card-text">Rating: <strong>@Model.Product.Ratings.Average()</strong></p>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -53,7 +57,7 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
         </div>
     </div>
