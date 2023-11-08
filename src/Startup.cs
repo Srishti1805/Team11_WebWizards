@@ -15,7 +15,7 @@ namespace ContosoCrafts.WebSite
         /// <summary>
         /// Contructor for initializing the web apllication with the required configuration
         /// </summary>
-        /// <param name="configuration"></param>
+        /// <param name = "configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,7 +29,7 @@ namespace ContosoCrafts.WebSite
         /// It initialises all the services with its implementations.
         /// services (IServiceCollection): a list of services with service type & its implementation
         /// </summary>
-        /// <param name="services"></param>
+        /// <param name = "services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -45,8 +45,8 @@ namespace ContosoCrafts.WebSite
         /// app (IApplicationBuilder): application configuration and mechanism helper
         /// env (IWebHostEnvironment): contains information about the hosting web environment
         /// </summary>
-        /// <param name="app"></param>
-        /// <param name="env"></param>
+        /// <param name = "app"></param>
+        /// <param name = "env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
