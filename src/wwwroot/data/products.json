@@ -128,5 +128,26 @@
       4,
       5
     ]
+  },
+  {
+    "Id": "7",
+    "Owner": "Dinesh",
+    "Phone": "2069987999",
+    "Name": null,
+    "Email": "dinesh@example.com",
+    "img": "https://marvel-b1-cdn.bc0a.com/f00000000200509/cdn11.bigcommerce.com/s-opskm61a5f/images/stencil/1920w/products/200/566/528-100__1__72308.1676714942.jpg?c=1",
+    "Price": 55.99,
+    "AvailableDays": 22,
+    "Url": "https://www.youtube.com/watch?v=LayF8nSDCKE",
+    "Title": "White Tail Sleeping Bag",
+    "Description": "A handy sleeping bag which can be used during camping. It is easy to carry.",
+    "review": null,
+    "Location": "Redmond, Belleve",
+    "Ratings": [
+      2,
+      2,
+      4,
+      5
+    ]
   }
 ]
