@@ -11,6 +11,7 @@
     "Url": "https://www.youtube.com/watch?v=SxygEWYwAB8",
     "Title": "Gridder",
     "Description": "The Gridder is a gardening tool that rolls out perfectly spaced grids for planting.",
+    "Category": "Gardening Equipments",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
@@ -36,6 +37,7 @@
     "Url": "https://www.youtube.com/watch?v=cH8HTra9eGQ",
     "Title": "Grass Cutter",
     "Description": "This is a mechanical device designed for cutting and maintaining the height of grass on lawns, gardens, or other outdoor areas.",
+    "Category": "Gardening Equipments",
     "review": null,
     "Location": "Seattle, Belleve",
     "Ratings": [
@@ -57,6 +59,7 @@
     "Url": "https://www.youtube.com/watch?v=khAuY-2GQ-A",
     "Title": "Ice cream Maker",
     "Description": "An ice cream maker is a kitchen appliance that churns and freezes liquid ice cream mixture to create homemade ice cream.",
+    "Category": "Home Appliances",
     "review": null,
     "Location": "Seattle",
     "Ratings": [
@@ -78,6 +81,7 @@
     "Url": "https://www.youtube.com/watch?v=L_pMxrEYvp8",
     "Title": "Cordless snow blower",
     "Description": "A cordless snow blower is a portable snow removal device powered by rechargeable batteries, offering flexibility and freedom from electrical cords.",
+    "Category": "Snow Equipments",
     "review": null,
     "Location": "Belleve",
     "Ratings": [
@@ -99,6 +103,7 @@
     "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA",
     "Title": "Tent and Camping Gear",
     "Description": "Camping equipment like tents, sleeping bags, and camping stoves.",
+    "Category": "Camping Equipments",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
@@ -120,6 +125,7 @@
     "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA",
     "Title": "Rug and Carpet Cleaner",
     "Description": "Used to deep clean carpets and rugs.",
+    "Category":"Home Appliances",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
@@ -141,6 +147,7 @@
     "Url": "https://www.youtube.com/watch?v=LayF8nSDCKE",
     "Title": "White Tail Sleeping Bag",
     "Description": "A handy sleeping bag which can be used during camping. It is easy to carry.",
+    "Category": "Camping Equipments",
     "review": null,
     "Location": "Redmond, Belleve",
     "Ratings": [
@@ -162,6 +169,7 @@
     "Url": "https://www.youtube.com/watch?v=F_e3FhjdNik",
     "Title": "Salt Spreader",
     "Description": "This product was built to provide all of The features and functionality needed for reliable, efficient performance. The 82400B 100 lbs. professional salt spreader has a large 1-piece poly Hopper, a rugged stainless steel frame, Solid linkage for full gate control, a stainless guillotine Style gate designed to cut through clumps of rock salt, a spiked auger to minimize clumping and improve product flow, enclosed metal gears with grease fitting, front and side baffle system for edge control and 14 in. Pneumatic tires to cover just about any terrain. Snow/rain cover is also included.",
+    "Category": "Snow Equipments",
     "review": null,
     "Location": "Redmond, Belleve",
     "Ratings": [
@@ -183,6 +191,7 @@
     "Url": "https://www.youtube.com/watch?v=uFDlrRYWam4",
     "Title": "3 piece wood handle garden tool",
     "Description": "The garden tool set is the perfect tool set for your gardening needs. With durable, rust resistant, black coated steel heads and ergonomically designed comfort grips, this tool set is designed for both extended use and longevity. Great for planting, digging, moving soil, transplanting, cultivating and more. Ideal for the professional landscaper or home gardener alike.",
+    "Category": "Gardening Equipments",
     "review": null,
     "Location": "Redmond, Belleve",
     "Ratings": [
@@ -204,6 +213,7 @@
     "Url": "https://www.youtube.com/watch?v=3-PDxWvWGuA",
     "Title": "Multi-purpose Handheld Pressurized Electric Steam Cleaner Steam Cleaner,",
     "Description": "This handheld steamer cleaner is Equipped with a powerful 1050-Watt heating system and offers a chemical-free way to deep clean and Sanitize your entire Home. This soniclean handheld steamer has the perfect attachments to sanitize every inch of your home and to make it free from Bed Bugs, Lice, Nits, Scabies Mites, Skin Parasites, Pet Mange, and Ear Mites It is also great for Garment Steaming, or for cleaning cars, trucks, motorcycles, and Boats, Cut through any mess using powerful high-pressure steam. ",
+    "Category": "Home Appliances",
     "review": null,
     "Location": "Redmond, Belleve",
     "Ratings": [
@@ -213,7 +223,4 @@
       5
     ]
   }
-
-
-
 ]
