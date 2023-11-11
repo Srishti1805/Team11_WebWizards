@@ -137,6 +137,7 @@ namespace ContosoCrafts.WebSite.Services
             productmodeldata.Email = data.Email;
             productmodeldata.Title = data.Title;
             productmodeldata.Description = data.Description;
+            productmodeldata.Category = data.Category;
             productmodeldata.Price = data.Price;
             productmodeldata.Url = data.Url;
             productmodeldata.Image = data.Image;
