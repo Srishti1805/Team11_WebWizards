@@ -202,6 +202,7 @@ namespace ContosoCrafts.WebSite.Services
                 Email = "Enter Email",
                 Title = "Enter Title",
                 Description = "Enter Description",
+                Category = "Enter the product category",
                 Price = 0.0f,
                 Url = "Enter URL",
                 Image = "",
