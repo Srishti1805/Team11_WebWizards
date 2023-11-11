@@ -63,6 +63,11 @@ namespace ContosoCrafts.WebSite.Models
         [Required]
         public string Description { get; set; }
         /// <summary>
+        /// Gets or sets the category of the product.
+        /// </summary>
+        [Required]
+        public string Category { get; set; }
+        /// <summary>
         /// Gets or sets the review of the product.
         /// </summary>
         public string review { get; set; }
