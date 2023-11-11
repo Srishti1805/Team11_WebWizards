@@ -137,7 +137,6 @@ namespace ContosoCrafts.WebSite.Services
             productmodeldata.Email = data.Email;
             productmodeldata.Title = data.Title;
             productmodeldata.Description = data.Description;
-            
             productmodeldata.Price = data.Price;
             productmodeldata.Url = data.Url;
             productmodeldata.Image = data.Image;
@@ -202,7 +201,6 @@ namespace ContosoCrafts.WebSite.Services
                 Email = "Enter Email",
                 Title = "Enter Title",
                 Description = "Enter Description",
-                
                 Price = 0.0f,
                 Url = "Enter URL",
                 Image = "",
