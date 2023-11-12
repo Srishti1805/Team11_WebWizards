@@ -48,6 +48,21 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
+
+        public IEnumerable<ProductModel> GetFirstTwoProducts()
+        {
+            using (var jsonFileReader = File.OpenText(JsonFileName))
+            {
+                var products = JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                return products.Take(2);
+            }
+        }
+
         public IEnumerable<ProductModel> GetAllData()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
