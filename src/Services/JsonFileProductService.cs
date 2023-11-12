@@ -48,7 +48,11 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
-
+        /// <summary>
+        /// Retrieves a collection of products belonging to specific category from the JSON file.
+        // Returns: IEnumerable<ProductModel> - Collection of products of a fixed category
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetFirstTwoProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
