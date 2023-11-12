@@ -27,6 +27,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         public void OnGet()
         {
+            Products = ProductService.GetFirstTwoProducts();
         }
     }
 }
