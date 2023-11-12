@@ -67,7 +67,7 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        public IEnumerable<ProductModel> GetLastTwoProducts()
+        public IEnumerable<ProductModel> GetProductsByCategory(string Category)
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
@@ -77,7 +77,8 @@ namespace ContosoCrafts.WebSite.Services
                         PropertyNameCaseInsensitive = true
                     });
 
-                return products.Take(2);
+                //return products.Reverse().Take(2);
+                return products.Where(product => product.Category.Equals(Category, StringComparison.OrdinalIgnoreCase));
             }
         }
 
