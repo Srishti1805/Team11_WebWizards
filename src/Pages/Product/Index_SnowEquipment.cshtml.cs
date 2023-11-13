@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 // Namespace declaration for the current class
 namespace ContosoCrafts.WebSite.Pages.Product
 {
-	public class Index_SnowEquipmentModel : PageModel
+    // Declaration of the Razor Pages model class, inheriting from PageModel
+    public class Index_SnowEquipmentModel : PageModel
     {
+        // Constructor for the class, accepting a JsonFileProductService instance as a dependency
         public Index_SnowEquipmentModel(JsonFileProductService productService)
         {
             ProductService = productService;
