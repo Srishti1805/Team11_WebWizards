@@ -67,6 +67,32 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+
+        public IEnumerable<ProductModel> GetLastTwoProducts()
+        {
+            using (var jsonFileReader = File.OpenText(JsonFileName))
+            {
+                var products = JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                int totalProducts = products.Length;
+
+                // Check if there are at least two products
+                if (totalProducts >= 2)
+                {
+                    return products.Skip(totalProducts - 2).Take(2);
+                }
+                else
+                {
+                    // If there are less than two products, return all products
+                    return products;
+                }
+            }
+        }
+
         public IEnumerable<ProductModel> GetProductsByCategory(string Category)
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
