@@ -97,7 +97,7 @@ namespace UnitTests.Pages.Product.Index
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(6, result);
+            Assert.AreEqual(10, result);
         }
         #endregion OnGet
     }
