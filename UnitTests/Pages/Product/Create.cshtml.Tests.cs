@@ -92,10 +92,10 @@ namespace UnitTests.Pages.Product.Create
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("7", result);
+            Assert.AreEqual("11", result);
 
             //Reset
-            pageModel.ProductService.DeleteData("7");
+            pageModel.ProductService.DeleteData("11");
         }
         #endregion OnGet
     }
