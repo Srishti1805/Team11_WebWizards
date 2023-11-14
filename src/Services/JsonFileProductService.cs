@@ -48,54 +48,6 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
-        /// <summary>
-        /// Retrieves a collection of products belonging to specific category from the JSON file.
-        // Returns: IEnumerable<ProductModel> - Collection of products of a fixed category
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<ProductModel> GetFirstTwoProducts()
-        {
-            using (var jsonFileReader = File.OpenText(JsonFileName))
-            {
-                var products = JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-
-                return products.Take(2);
-            }
-        }
-
-        /// <summary>
-        /// Retrieves a collection of products belonging to specific category from the JSON file.
-        // Returns: IEnumerable<ProductModel> - Collection of products of a fixed category
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<ProductModel> GetLastTwoProducts()
-        {
-            using (var jsonFileReader = File.OpenText(JsonFileName))
-            {
-                var products = JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-
-                int totalProducts = products.Length;
-
-                // Check if there are at least two products
-                if (totalProducts >= 2)
-                {
-                    return products.Skip(totalProducts - 2).Take(2);
-                }
-                else
-                {
-                    // If there are less than two products, return all products
-                    return products;
-                }
-            }
-        }
 
         public IEnumerable<ProductModel> GetProductsByCategory(string Category)
         {
