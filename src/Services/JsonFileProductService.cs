@@ -49,16 +49,25 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves a collection of products from the JSON file based on the category passed as argument
+        /// </summary>
+        /// <param name="Category"></param>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetProductsByCategory(string Category)
         {
+            // Open the JSON file for reading
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
+                // Deserialize the JSON content into an array of ProductModel objects
                 var products = JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
+                        // Ensure case-insensitive property name matching during deserialization
                         PropertyNameCaseInsensitive = true
                     });
-
+                // Filter products based on the provided category (case-insensitive comparison)
+                // Note: If needed, consider trimming category strings to handle potential whitespace issues
                 //return products.Reverse().Take(2);
                 return products.Where(product => product.Category.Equals(Category, StringComparison.OrdinalIgnoreCase));
             }
