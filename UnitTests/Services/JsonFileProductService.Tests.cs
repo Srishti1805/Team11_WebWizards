@@ -15,6 +15,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using System.Linq;
+using System;
 
 namespace UnitTests.Services.JsonFileProductServiceTest
 {
@@ -235,6 +236,27 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         }
         #endregion AddRating
 
+        #region getProduct 
+        /// <summary>
+        /// Get Products for a valid category
+        /// </summary>
+        [Test]
+        public void GetProductsByCategory_Valid_Product_Category_Should_Return_True()
+        {
+            // Arrange
+            var productService = pageModel.ProductService; 
+            var testCategory = "Gardening Equipments";
 
+            // Act
+            var result = productService.GetProductsByCategory(testCategory);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any()); // Ensure that there is at least one product in the result
+            // check that all returned products have the correct category
+            Assert.IsTrue(result.All(product => product.Category.Equals(testCategory, StringComparison.OrdinalIgnoreCase)));
+        }
+
+        #endregion getProduct 
     }
 }
