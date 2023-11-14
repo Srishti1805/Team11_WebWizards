@@ -16,7 +16,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public IEnumerable<ProductModel> Products { get; private set; }
         public void OnGet()
         {
-            Products = ProductService.GetLastTwoProducts();
+            Products = ProductService.GetProductsByCategory("Home Appliances");
         }
     }
 }
