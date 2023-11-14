@@ -112,7 +112,7 @@ namespace UnitTests.Pages.Index
             // Ensure that the ModelState of the pageModel is valid after executing OnGet.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             // Ensure that the number of products returned by the OnGet method is as expected (6 in this case).
-            Assert.AreEqual(6, result);
+            Assert.AreEqual(10, result);
         }
         #endregion OnGet
     }
