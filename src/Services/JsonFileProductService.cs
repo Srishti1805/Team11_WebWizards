@@ -121,10 +121,10 @@ namespace ContosoCrafts.WebSite.Services
                 return false;
             }
             // Check to see if the rating exist, if there are none, then create the array
-            //if (data.Ratings == null)
-            //{
-            //    data.Ratings = new int[] { };
-            //}
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { };
+            }
             // Save the ratings to a rating array
             var ratings = data.Ratings.ToList();
 
