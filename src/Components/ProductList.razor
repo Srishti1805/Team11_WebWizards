@@ -103,9 +103,8 @@
         {
             voteCount = selectedProduct.Ratings.Count();
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            if (voteCount == 0)
-            { currentRating = 0; }
-            else
+            //if (voteCount == 0) currentRating = 0;
+            //else
             { currentRating = selectedProduct.Ratings.Sum() / voteCount; }
         }
 
