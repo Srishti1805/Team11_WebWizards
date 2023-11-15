@@ -125,7 +125,7 @@
     "Url": "https://www.youtube.com/watch?v=GrCrmBz6fBA",
     "Title": "Rug and Carpet Cleaner",
     "Description": "Used to deep clean carpets and rugs.",
-    "Category":"Home Appliances",
+    "Category": "Home Appliances",
     "review": null,
     "Location": "Seattle, Redmond, Belleve",
     "Ratings": [
@@ -164,7 +164,7 @@
     "Name": null,
     "Email": "john@example.com",
     "img": "https://images.thdstatic.com/productImages/3e117cec-5d60-42e5-9d93-ad3be9e6c0b3/svn/chapin-salt-spreaders-82400b-64_300.jpg",
-    "Price": 289.00,
+    "Price": 289,
     "AvailableDays": 20,
     "Url": "https://www.youtube.com/watch?v=F_e3FhjdNik",
     "Title": "Salt Spreader",
@@ -216,6 +216,6 @@
     "Category": "Home Appliances",
     "review": null,
     "Location": "Redmond, Belleve",
-    "Ratings": []
+    "Ratings": null
   }
 ]
