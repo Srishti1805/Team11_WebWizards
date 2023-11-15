@@ -3,13 +3,10 @@ using NUnit.Framework;
 
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
-using Microsoft.AspNetCore.Components;
 using ContosoCrafts.WebSite.Models;
-using Moq;
 using ContosoCrafts.WebSite.Components;
 using ContosoCrafts.WebSite.Services;
 using System;
-using System.Collections.Generic;
 
 namespace UnitTests.Components
 {
