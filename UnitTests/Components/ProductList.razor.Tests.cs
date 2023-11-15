@@ -13,18 +13,26 @@ using System.Collections.Generic;
 
 namespace UnitTests.Components
 {
+    /// <summary>
+    /// This class contains unit tests for the ProductModel
+    /// </summary>
     public class ProductListTests : BunitTestContext
     {
         #region TestSetup
         public ProductModel[] Products;
-
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
         }
-
         #endregion TestSetup
+
         #region ProductList
+        /// <summary>
+        /// Test for getting the product list
+        /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
         {
@@ -42,11 +50,12 @@ namespace UnitTests.Components
             // Check if the markup contains a specific content
             Assert.AreEqual(true, result.Contains("Gridder"));
         }
-
         #endregion ProductList
 
         #region submitRating
-
+        /// <summary>
+        /// Test for submit rating for product without any ratings
+        /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
@@ -123,7 +132,9 @@ namespace UnitTests.Components
             TestHelper.ProductService.SaveModifiedData(Products);
         }
 
-
+        /// <summary>
+        /// Test for submit rating
+        /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count()
         {
@@ -202,6 +213,9 @@ namespace UnitTests.Components
         #endregion submitRating
 
         #region SelectProduct
+        /// <summary>
+        /// Test for getting content of selected product
+        /// </summary>
         [Test]
         public void SelectProduct_Valid_ID_Should_Return_Content()
         {
