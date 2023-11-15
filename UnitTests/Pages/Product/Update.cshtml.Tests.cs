@@ -119,6 +119,42 @@ namespace UnitTests.Pages.Product.Update
             // Reset
             pageModel.Product.Price = temp;
         }
+
+        /// <summary>
+        /// Test for valid OnPost for the update page
+        /// </summary>
+        [Test]
+        public void OnPost_Valid_Should_Return_Correct_Page()
+        {
+            // Arrange
+            pageModel.OnGet("1");
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        /// <summary>
+        /// Test for invalid OnPost for the update page
+        /// </summary>
+        [Test]
+        public void OnPost_InValid_Model_NotValid_Should_not_Return_Page()
+        {
+            // Arrange (preparing the necessary objects or data for the test)
+            pageModel.OnGet("1");
+
+            // Force an invalid error state
+            pageModel.ModelState.AddModelError("bogus", "bogus error");
+
+            // Act (performing the actual operation being tested)
+            var result = pageModel.OnPost() as ActionResult;
+
+            // Assert (verifying the expected outcome)
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+        }
         #endregion OnPost
     }
 }
