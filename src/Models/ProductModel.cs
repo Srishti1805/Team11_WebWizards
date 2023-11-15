@@ -40,11 +40,13 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the price of the product.
         /// </summary>
+        [Range (0, int.MaxValue, ErrorMessage = "Price should not be a negative value")]
         [Required]
         public float Price { get; set; }
         /// <summary>
         /// Gets or sets the Available days of the product.
         /// </summary>
+        [Range(0, int.MaxValue, ErrorMessage = "Days should not be a negative value")]
         public int AvailableDays { get; set; }
 
         /// <summary>
