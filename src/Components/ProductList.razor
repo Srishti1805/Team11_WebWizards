@@ -78,7 +78,7 @@
 
 @code 
 {
-    ProductModel selectedProduct;
+    public ProductModel selectedProduct;
     string selectedProductId;
 
     void SelectProduct(string productId)
@@ -92,7 +92,7 @@
     int voteCount = 0;
     string voteLabel;
 
-    void GetCurrentRating()
+	void GetCurrentRating()
     {
       if(selectedProduct.Ratings == null)
       {
