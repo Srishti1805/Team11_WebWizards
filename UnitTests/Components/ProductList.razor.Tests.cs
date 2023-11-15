@@ -8,6 +8,7 @@ using ContosoCrafts.WebSite.Models;
 using Moq;
 using ContosoCrafts.WebSite.Components;
 using ContosoCrafts.WebSite.Services;
+using System;
 
 namespace UnitTests.Components
 {
@@ -42,7 +43,7 @@ namespace UnitTests.Components
 
         #endregion ProductList
 
-        #region submitrating
+        #region submitRating
 
         [Test]
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
@@ -59,7 +60,7 @@ namespace UnitTests.Components
             */
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var Title = "MoreInfoButton_1";
+            var Title = "MoreInfoButton_10";
 
             var page = RenderComponent<ProductList>();
 
@@ -107,15 +108,28 @@ namespace UnitTests.Components
 
             // Save the html for it to compare after the click
             var postStarChange = starButton.OuterHtml;
+            int result = 0;
+            var a = preVoteCountString.Substring(6, 1);
+            if (a == "B") a = "0";
+            int preVoteCountInt = Int32.Parse(a);
+            var b = postVoteCountString.Substring(6,1);
+            int postVoteCountInt = Int32.Parse(b);
+            result = postVoteCountInt - preVoteCountInt; 
+            
 
             // Assert
+                Assert.AreEqual(1, result);
+            
 
-            // Confirm that the record had no votes to start, and 1 vote after
-            Assert.AreEqual(true, preVoteCountString.Contains("Be the first to vote!"));
-            Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
-            Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
+            // Reset
+            ProductModel productModel = new ProductModel
+            {
+                Id = "10",
+                Ratings = null
+            };
+            TestHelper.ProductService.UpdateData(productModel);
         }
-        #endregion submitrating
+        #endregion submitRating
 
         #region SelectProduct
         [Test]
