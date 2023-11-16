@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
-using System;
-using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
@@ -35,7 +33,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id"></param>
         public void OnGet()
         {
-            this.Product = ProductService.CreateProduct();
+            Product = ProductService.CreateProduct();
             // Redirect the webpage to the Update page populated with the data so the user can fill in the fields
             //return RedirectToPage("./Update", new { Id = Product.Id });
         }
