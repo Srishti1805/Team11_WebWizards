@@ -78,6 +78,9 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-image: url('../images/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .btn-primary:hover {
     color: #fff;
