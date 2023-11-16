@@ -164,6 +164,7 @@ namespace ContosoCrafts.WebSite.Services
             productmodeldata.Description = data.Description;
             productmodeldata.Category = data.Category;
             productmodeldata.Price = data.Price;
+            productmodeldata.AvailableDays = data.AvailableDays;
             productmodeldata.Url = data.Url;
             productmodeldata.Image = data.Image;
             productmodeldata.Location = data.Location;
@@ -226,6 +227,7 @@ namespace ContosoCrafts.WebSite.Services
             product.Description = data.Description;
             product.Category = data.Category;
             product.Price = data.Price;
+            product.AvailableDays = data.AvailableDays;
             product.Url = data.Url;
             product.Image = data.Image;
             product.Location = data.Location;
