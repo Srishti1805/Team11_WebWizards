@@ -7,7 +7,7 @@
 @foreach (var product in ProductService.GetProducts())
 {
     <div class="card">
-        <a href="@($"Product/Read/{product.Id}")">
+        <a href="@($"Product/Read/{product.Id}")"> <!-- Redirect image to desired Read page -->
             <div class="card-img" style="background-image: url('@product.Image');">
             </div>
         </a>
