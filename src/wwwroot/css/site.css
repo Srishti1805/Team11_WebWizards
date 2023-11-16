@@ -77,14 +77,7 @@ a {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    /* Background image */
-    background-image: url(https://img.freepik.com/premium-photo/dark-blue-color-background-geometric-shape-wallpaper-gradient_41969-16949.jpg);
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #252152;
-    border-color: #252152;
+    background-image: url('../images/Background.png');
 }
 .btn-primary:hover {
     color: #fff;
