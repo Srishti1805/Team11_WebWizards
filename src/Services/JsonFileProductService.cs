@@ -214,7 +214,32 @@ namespace ContosoCrafts.WebSite.Services
         /// Create data to add to the system
         /// </summary>
         /// <returns></returns>
-        public ProductModel CreateData()
+        public ProductModel CreateData(ProductModel data)
+        {
+            var product = new ProductModel();
+            product.Id = data.Id;
+            product.Owner = data.Owner;
+            product.Phone = data.Phone;
+            product.Name = data.Name;
+            product.Email = data.Email;
+            product.Title = data.Title;
+            product.Description = data.Description;
+            product.Category = data.Category;
+            product.Price = data.Price;
+            product.Url = data.Url;
+            product.Image = data.Image;
+            product.Location = data.Location;
+
+            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
+            var dataSet = GetAllData();
+            dataSet = dataSet.Append(product);
+
+            SaveModifiedData(dataSet);
+
+            return data;
+        }
+
+        public ProductModel CreateProduct()
         {
             string s = GetAllData().Last().Id;
             int x = Int32.Parse(s);
@@ -223,25 +248,18 @@ namespace ContosoCrafts.WebSite.Services
                 Id = (x + 1).ToString(), //System.Guid.NewGuid().ToString(),
                 Owner = "Enter Owner Name",
                 Phone = "Enter you mobile number",
-                Name=null,
+                Name = null,
                 Email = "Enter Email",
                 Title = "Enter Title",
                 Description = "Enter Description",
                 Category = "Enter the product category",
                 Price = 0.0f,
                 Url = "Enter URL",
-                Image = "",
+                Image = "Enter image url",
                 Location = " Enter Location",
                 AvailableDays = 0,
                 Ratings = new int[] { 0 }
             };
-
-            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
-            var dataSet = GetAllData();
-            dataSet = dataSet.Append(data);
-
-            SaveModifiedData(dataSet);
-
             return data;
         }
 
