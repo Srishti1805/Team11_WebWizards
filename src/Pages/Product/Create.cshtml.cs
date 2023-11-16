@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using System;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
@@ -23,19 +25,27 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        // The data to show
-        public ProductModel Product;
+        //// Model binding property for the product to be updated.
+        [BindProperty]
+        public ProductModel Product { get; set; }
 
         /// <summary>
         /// REST Get request
         /// </summary>
         /// <param name="id"></param>
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            Product = ProductService.CreateData();
-
+            this.Product = ProductService.CreateProduct();
             // Redirect the webpage to the Update page populated with the data so the user can fill in the fields
-            return RedirectToPage("./Update", new { Id = Product.Id });
+            //return RedirectToPage("./Update", new { Id = Product.Id });
+        }
+
+        public IActionResult OnPost()
+        {
+            ProductService.CreateData(Product);
+
+            // Redirect to the product index page after successful update.
+            return RedirectToPage("./Index");
         }
     }
 }
