@@ -256,17 +256,17 @@ namespace ContosoCrafts.WebSite.Services
             var data = new ProductModel()
             {
                 Id = (x + 1).ToString(), //System.Guid.NewGuid().ToString(),
-                Owner = "Enter Owner Name",
-                Phone = "Enter you mobile number",
+                Owner = "",
+                Phone = "",
                 Name = null,
-                Email = "Enter Email",
-                Title = "Enter Title",
-                Description = "Enter Description",
-                Category = "Enter the product category",
+                Email = "",
+                Title = "",
+                Description = "",
+                Category = "",
                 Price = 0.0f,
-                Url = "Enter URL",
-                Image = "Enter image url",
-                Location = " Enter Location",
+                Url = "",
+                Image = "",
+                Location = "",
                 AvailableDays = 0,
                 Ratings = new int[] { 0 }
             };
