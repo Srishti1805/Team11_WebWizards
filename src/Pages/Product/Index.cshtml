@@ -6,28 +6,29 @@
 
 <div class="index-container">
     <a asp-page="Create" class="btn btn-create">+ Create</a>
-
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th class="table-heading">Title</th>
-                <th class="table-heading">Location</th>
-                <th class="table-heading">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model.Products)
-            {
+    <div class="transbox-index">
+        <table class="table table-bordered table-striped">
+            <thead>
                 <tr>
-                    <td class="table-field">@product.Title</td>
-                    <td class="table-field">@product.Location</td>
-                    <td class="table-field">
-                        <a asp-page="Read" asp-route-id="@product.Id" class="btn-action">Read</a>
-                        <a asp-page="Update" asp-route-id="@product.Id" class="btn-action">Update</a>
-                        <a asp-page="Delete" asp-route-id="@product.Id" class="btn-action">Delete</a>
-                    </td>
+                    <th class="table-heading">Title</th>
+                    <th class="table-heading">Location</th>
+                    <th class="table-heading">Action</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td class="table-field">@product.Title</td>
+                        <td class="table-field">@product.Location</td>
+                        <td class="table-field">
+                            <a asp-page="Read" asp-route-id="@product.Id" class="btn-action">Read</a>
+                            <a asp-page="Update" asp-route-id="@product.Id" class="btn-action">Update</a>
+                            <a asp-page="Delete" asp-route-id="@product.Id" class="btn-action">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
