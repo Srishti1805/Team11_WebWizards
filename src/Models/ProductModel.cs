@@ -18,23 +18,27 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the owner of the product.
         /// </summary>
+        [Required(ErrorMessage = "Owner is required.")]
         public string Owner { get; set; }
         /// <summary>
         /// Gets or sets the phone number associated with the product.
         /// </summary>
+        [Required(ErrorMessage = "Phone number is required.")]
         public string Phone { get; set; }
         /// <summary>
         /// Gets or sets the name associated with the product.
         /// </summary>
+        [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
         /// <summary>
         /// Gets or sets the email address associated with the product.
         /// </summary>
+        [Required(ErrorMessage = "Email is required.")]
         public string Email { get; set; }
         /// <summary>
         /// Gets or sets the image URL of the product.
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Image URL is required.")]
         [JsonPropertyName("img")]
         public string Image { get; set; }
         /// <summary>
@@ -52,22 +56,22 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the URL of the tutorial video associated with the product.
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "URL is required.")]
         public string Url { get; set; }
         /// <summary>
         /// Gets or sets the title of the product.
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Title is required.")]
         public string Title { get; set; }
         /// <summary>
         /// Gets or sets the description of the product.
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Description is required.")]
         public string Description { get; set; }
         /// <summary>
         /// Gets or sets the category of the product.
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Category is required.")]
         public string Category { get; set; }
         /// <summary>
         /// Gets or sets the review of the product.
@@ -76,6 +80,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Gets or sets the location information of the product.
         /// </summary>
+        [Required(ErrorMessage = "Location is required.")]
         public string Location { get; set; }
         /// <summary>
         /// Gets or sets an array of ratings associated with the product.
