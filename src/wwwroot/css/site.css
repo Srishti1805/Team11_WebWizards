@@ -166,18 +166,39 @@ ul {
 
 .privacy-header {
     color: ghostwhite;
+    padding-left: 10px;
 }
 
 .privacy-content {
     color: ghostwhite;
+    font-style: oblique;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    text-justify: auto;
+}
+
+div.transbox {
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+div.transbox-index {
+    background-color: rgb(0, 0, 0, 0.7);
+    padding: 0px;
 }
 
 .about_us-header {
-    color: ghostwhite;
+    color: white;
+    padding-left: 10px;
 }
 
 .about_us-content {
-    color: ghostwhite;
+    color: white;
+    font-style: oblique;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    text-justify: auto;
 }
 
 .team-member-image {
@@ -185,7 +206,8 @@ ul {
 }
 
 .team-member-name {
-    color: ghostwhite;
+    color: black;
+    padding-left: 20px;
     text-align: center; /* Center the team member names */
 }
 
@@ -194,26 +216,38 @@ ul {
 }
 
 .form-container {
-    color: ghostwhite;
+    color: black;
+    font-weight: bold;
 }
 
 .delete-header {
-    color: ghostwhite;
+    color: black;
 }
 
 .btn-create {
-    color: whitesmoke;
+    color: white;
     background-color: #007bff;
     border-color: #252152;
 }
 
 .table-heading {
-    color: ghostwhite;
+    color: white;
     text-align: center;
 }
 
+.table-field-title {
+    color: white;
+    font-weight: 500;
+}
+
 .table-field {
-    color: whitesmoke;
-    /*text-align: center;*/
+    color: white;
+    text-align: center;
     font-weight: 400;
+    padding-left: 10px;
+}
+
+ul li {
+    list-style-position: inside;
+    padding-left: 10px;
 }
