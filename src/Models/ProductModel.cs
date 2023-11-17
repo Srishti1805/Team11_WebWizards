@@ -24,6 +24,7 @@ namespace ContosoCrafts.WebSite.Models
         /// Gets or sets the phone number associated with the product.
         /// </summary>
         [Required(ErrorMessage = "Phone number is required.")]
+        [RegularExpression("^[0-9]{1,10}$", ErrorMessage = "Phone number should only contain digits and have a maximum length of 10.")]
         public string Phone { get; set; }
         /// <summary>
         /// Gets or sets the name associated with the product.
