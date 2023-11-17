@@ -73,6 +73,10 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        /// <summary>
+        /// Returns all data stored in json file 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetAllData()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
@@ -241,6 +245,10 @@ namespace ContosoCrafts.WebSite.Services
             return data;
         }
 
+        /// <summary>
+        /// Create temp product model object
+        /// </summary>
+        /// <returns></returns>
         public ProductModel CreateProduct()
         {
             string s = GetAllData().Last().Id;
