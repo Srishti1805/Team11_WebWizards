@@ -36,7 +36,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         {
             // Call to the GetProductsByCategory method of the ProductService
             // This fetches products with the specified category
-            Products = ProductService.GetProductsByCategory("Snow Equipments");
+            Products = ProductService.GetProductsByCategory(ProductTypeEnum.SnowEquipments);
         }
     }
 }
