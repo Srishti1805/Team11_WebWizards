@@ -54,7 +54,7 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="Category"></param>
         /// <returns></returns>
-        public IEnumerable<ProductModel> GetProductsByCategory(string Category)
+        public IEnumerable<ProductModel> GetProductsByCategory(ProductTypeEnum category)
         {
             // Open the JSON file for reading
             using (var jsonFileReader = File.OpenText(JsonFileName))
@@ -66,28 +66,12 @@ namespace ContosoCrafts.WebSite.Services
                         // Ensure case-insensitive property name matching during deserialization
                         PropertyNameCaseInsensitive = true
                     });
-                // Filter products based on the provided category (case-insensitive comparison)
-                // Note: If needed, consider trimming category strings to handle potential whitespace issues
-                //return products.Reverse().Take(2);
-                return products.Where(product => product.Category.Equals(Category, StringComparison.OrdinalIgnoreCase));
+
+                // Filter products based on the provided category
+                return products.Where(product => product.ProductType == category);
             }
         }
 
-        /// <summary>
-        /// Returns all data stored in json file 
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<ProductModel> GetAllData()
-        {
-            using (var jsonFileReader = File.OpenText(JsonFileName))
-            {
-                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-            }
-        }
         /// <summary>
         /// Adds a rating to the specified product
         /// productId (string): The unique identifier of the product.
@@ -166,7 +150,7 @@ namespace ContosoCrafts.WebSite.Services
             productmodeldata.Email = data.Email;
             productmodeldata.Title = data.Title;
             productmodeldata.Description = data.Description;
-            productmodeldata.Category = data.Category;
+            //productmodeldata.Category = data.Category;
             productmodeldata.Price = data.Price;
             productmodeldata.AvailableDays = data.AvailableDays;
             productmodeldata.Url = data.Url;
@@ -229,7 +213,7 @@ namespace ContosoCrafts.WebSite.Services
             product.Email = data.Email;
             product.Title = data.Title;
             product.Description = data.Description;
-            product.Category = data.Category;
+            //product.Category = data.Category;
             product.Price = data.Price;
             product.AvailableDays = data.AvailableDays;
             product.Url = data.Url;
@@ -237,7 +221,7 @@ namespace ContosoCrafts.WebSite.Services
             product.Location = data.Location;
 
             // Get the current set, and append the new record to it becuase IEnumerable does not have Add
-            var dataSet = GetAllData();
+            var dataSet = GetProducts();
             dataSet = dataSet.Append(product);
 
             SaveModifiedData(dataSet);
@@ -251,7 +235,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns></returns>
         public ProductModel CreateProduct()
         {
-            string s = GetAllData().Last().Id;
+            string s = GetProducts().Last().Id;
             int x = Int32.Parse(s);
             var data = new ProductModel()
             {
@@ -262,7 +246,7 @@ namespace ContosoCrafts.WebSite.Services
                 Email = "",
                 Title = "",
                 Description = "",
-                Category = "",
+                //Category = "",
                 Price = 0.0f,
                 Url = "",
                 Image = "",
