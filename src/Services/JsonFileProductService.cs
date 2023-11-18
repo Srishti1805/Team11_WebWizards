@@ -252,7 +252,7 @@ namespace ContosoCrafts.WebSite.Services
                 Image = "",
                 Location = "",
                 AvailableDays = 0,
-                Ratings = new int[] { 0 }
+                Ratings = null
             };
             return data;
         }
