@@ -32,7 +32,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         public void OnGet()
         {
-            Products = ProductService.GetProductsByCategory("Camping Equipments");
+            Products = ProductService.GetProductsByCategory(ProductTypeEnum.CampingEquipments);
         }
 
     }
