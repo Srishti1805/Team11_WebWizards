@@ -2,6 +2,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using Microsoft.AspNetCore.Mvc;
 
 // Namespace for Product related to the Read page
 namespace ContosoCrafts.WebSite.Pages.Product
@@ -28,9 +29,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Handles HTTP Get requests and retrieves the product details based on provided ID
         /// </summary>
         /// <param name="id">The ID of the product to be displayed.</param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
-            Product  = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            if (Product == null)
+            {
+                return RedirectToPage("./Index");
+            }
+
+            return Page();
+
         }
     }
 }

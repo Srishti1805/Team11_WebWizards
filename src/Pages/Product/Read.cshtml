@@ -1,5 +1,6 @@
 ﻿@page "{id}"
 @using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.ReadModel
 
@@ -30,7 +31,7 @@
         }
     </style>
     <div class="transbox">
-        <wbr/>
+        <wbr />
         <div class="row">
             <div class="col-md-10">
                 <h1 class="card-heading" id="productTitle">@Model.Product.Title</h1>
@@ -41,7 +42,7 @@
                 <p class="card-text">@Model.Product.Description</p>
 
                 <h4 class="card-heading"><br />Category</h4>
-                <p class="card-text">@Model.Product.Category</p>
+                <p class="card-text">@Model.Product.ProductType</p>
 
                 <h4 class="card-heading">Price</h4>
                 <p class="card-text"><i><b>$@Model.Product.Price</b></i></p>
@@ -64,7 +65,7 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
-                <br/>
+                <br />
             </div>
             <div class="col-md-2">
                 <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
