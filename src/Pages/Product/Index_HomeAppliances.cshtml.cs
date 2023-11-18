@@ -31,7 +31,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// </summary>
         public void OnGet()
         {
-            Products = ProductService.GetProductsByCategory("Home Appliances");
+            Products = ProductService.GetProductsByCategory(ProductTypeEnum.HomeAppliance);
         }
     }
 }
