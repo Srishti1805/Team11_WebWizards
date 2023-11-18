@@ -3,102 +3,135 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-    <div class="container">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <div class="input-group" style="margin-left: -30px; border: 5px solid #000000; border-radius: 5px; padding: 5px;">
-                        <input @bind="filterText" class="form-control" placeholder="Search by Title" style="color: black;" />
-                        <div class="input-group-append">
-                            <button @onclick="Search" class="btn btn-outline-secondary" type="button" style="color: black;">Search</button>
-                            <button @onclick="Clear" class="btn btn-outline-secondary" type="button" style="color: black;">Clear</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+<div>
+    <div class="row">
+        <div class="col">
+            <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
+            <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
+            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
         </div>
     </div>
-</nav>
 
-<div class="card-columns">
-    @foreach (var product in ProductService.GetProducts().Where(p => string.IsNullOrWhiteSpace(filterText) || p.Title.Contains(filterText, StringComparison.OrdinalIgnoreCase)))
-{
-    <div class="card">
-        <a href="@($"Product/Read/{product.Id}")"> <!-- Redirect image to desired Read page -->
-            <div class="card-img" style="background-image: url('@product.Image');">
-            </div>
-        </a>
-        <div class="card-body">
-            <h5 class="card-title">@product.Title</h5>
-                <h5 class="card-price">$@product.Price</h5>
-                    <h5 class="card-availabledays">Available for @product.AvailableDays days</h5>
-
-        </div>
-        <br>
-        <div class="card-footer">
-                <small class="text-muted">
-                    <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
-            </small>
-        </div>
-    </div>
-}
 </div>
 
+<div class="container-fluid">
+    @{
+        var productList = ProductService.GetProducts();
 
-  <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        @if (selectedProduct != null)
+        /*
+
+            Change the grouping sort order to be
+            Order by ProductType
+            Then order by ProductList Alphabetic within the Product data set
+
+        */
+
+        // Group by the Enum
+        foreach (ProductTypeEnum productType in Enum.GetValues(typeof(ProductTypeEnum)))
         {
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="card">
-            <div class="card-img" style="background-image: url('@selectedProduct.Image');">
-            </div>
-            <div class="card-body">
-                <p class="card-text">@selectedProduct.Description</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          @if(voteCount == 0)
-          {
-            <span>Be the first to vote!</span>
-          }
-          else
-          {
-            <span>@voteCount @voteLabel</span>
-          }
-          @for(int i=1; i<6; i++)
-          {
-            var currentStar = i;
-            if(i<=currentRating)
-            {
-              <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
-            }
-            else
-            {
-              <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-            }
-          }
-        </div>
-      </div>
-        }
-    </div>
-  </div>
+            // Get only the products that are of this enum type
+            var productListGroup = productList.Where(m => m.ProductType == productType);
 
+            // Order the list alphabetical
+            productListGroup = productListGroup.OrderBy(m => m.Title);
+
+            // If filter is enabled, reduce the data set to the filter string
+            if (FilterData)
+            {
+                productListGroup = productListGroup.Where(m => m.Title.Contains(FilterDataString));
+            }
+
+            if (productListGroup.Any())
+            {
+
+                <hr />
+                <h2>@productType.DisplayName()</h2>
+
+                <div class="row">
+                    <div class="card-columns">
+                        @foreach (var product in productListGroup)
+                        {
+                            <div class="card">
+                                <div class="card-img" style="background-image: url('@product.Image');">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">@product.Title</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">
+                                        <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+                                    </small>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>
+
+@if (selectedProduct != null)
+{
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-img" style="background-image: url('@selectedProduct.Image');">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@selectedProduct.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col">
+                                @{
+                                    var voteString = @voteCount + " " + @voteLabel;
+
+                                    if (voteCount == 0)
+                                    {
+                                        voteString = "Be the first to vote!";
+                                    }
+
+                                    <span>@voteString</span>
+
+                                    for (int i = 1; i < 6; i++)
+                                    {
+                                        var currentStar = i;
+                                        var checkedText = "";
+
+                                        if (i <= currentRating)
+                                        {
+                                            checkedText = "checked";
+                                        }
+
+                                        <span class="fa fa-star @checkedText" @onclick="(e => SubmitRating(currentStar))"></span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-@code 
+@code
 {
-    public ProductModel selectedProduct;
+    ProductModel selectedProduct;
     string selectedProductId;
 
     void SelectProduct(string productId)
@@ -114,7 +147,7 @@
 
     void GetCurrentRating()
     {
-        if(selectedProduct.Ratings == null)
+        if (selectedProduct.Ratings == null)
         {
             currentRating = 0;
             voteCount = 0;
@@ -123,32 +156,62 @@
         {
             voteCount = selectedProduct.Ratings.Count();
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            //if (voteCount == 0) currentRating = 0;
-            //else
-            { currentRating = selectedProduct.Ratings.Sum() / voteCount; }
+            currentRating = selectedProduct.Ratings.Sum() / voteCount;
         }
 
-      System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
+        System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
     {
-      System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
-      ProductService.AddRating(selectedProductId, rating);
-      SelectProduct(selectedProductId);
-    }
-    string filterText = "";
-
-    void Search()
-    {
-        // You can add more sophisticated filtering logic here if needed
-        // For now, I'm just setting the filterText to be used in the product card section
-        StateHasChanged();
+        System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
+        ProductService.AddRating(selectedProductId, rating);
+        SelectProduct(selectedProductId);
     }
 
-    void Clear()
+    // New Comment Flag to show the input box or not
+    bool NewComment = false;
+
+    // Next Comment Text is what the comment text is
+    string NewCommentText = "";
+
+    /// <summary>
+    /// Enable the New Comment Entry by setting the NewComment flag
+    /// </summary>
+    /// <param name="comment"></param>
+    void ShowNewCommentInput()
     {
-        filterText = "";
-        StateHasChanged();
+        // Setting the new Comment flag to true will show the input box
+        NewComment = true;
+    }
+
+    /// <summary>
+    /// Set the New Comment Text variable to the data just entered in the input box
+    /// </summary>
+    /// <param name="newCommentText"></param>
+    void UpdateCommentText(string newCommentText)
+    {
+        NewCommentText = newCommentText;
+    }
+
+
+    string FilterDataString = "";
+    bool FilterData = false;
+
+    void UpdateFilterText(string text)
+    {
+        FilterDataString = text;
+    }
+
+    void EnableFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = true;
+    }
+
+    void ClearFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = false;
     }
 }
