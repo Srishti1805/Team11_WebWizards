@@ -71,10 +71,10 @@
     }
 </div>
 
-@if (selectedProduct != null)
-{
-    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        @if (selectedProduct != null)
+        {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
@@ -120,10 +120,11 @@
                                 }
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
+        }
+    </div>
         </div>
 }
 
