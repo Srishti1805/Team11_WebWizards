@@ -52,6 +52,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public IActionResult OnPost()
 
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             // Update the product data using the product service
             ProductService.UpdateData(Product);
 
