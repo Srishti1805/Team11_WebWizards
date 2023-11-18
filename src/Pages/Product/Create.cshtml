@@ -1,5 +1,6 @@
 ﻿@page
 @using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.CreateModel
 
@@ -42,9 +43,13 @@
             <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Product.Category" class="control-label"></label>
-            <input asp-for="Product.Category" class="form-control" />
-            <span asp-validation-for="Product.Category" class="text-danger"></span>
+            <label asp-for="Product.ProductType" class="control-label"></label>
+            <select class="form-control"
+                    asp-for="Product.ProductType"
+                    asp-items="Html.GetEnumSelectList<ProductTypeEnum>()">
+                <option selected="selected" value="">Please Select</option>
+            </select>
+            <span asp-validation-for="Product.ProductType" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Product.Price" class="control-label"></label>
