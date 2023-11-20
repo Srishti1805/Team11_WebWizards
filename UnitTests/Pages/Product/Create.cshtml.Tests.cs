@@ -88,7 +88,27 @@ namespace UnitTests.Pages.Product.Create
 
             // Act
             pageModel.OnGet();
-            var result = pageModel.ProductService.GetAllData().Last().Id;
+            var result = pageModel.ProductService.GetProducts().Last().Id;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("10", result);
+        }
+        #endregion OnGet
+
+        #region OnPost
+        [Test]
+        /// <summary>
+        /// test for OnPost in Create page
+        /// </summary>
+        public void OnPost_Valid_Test_Should_Return_Product_Identifier()
+        {
+            // Arrange
+            pageModel.OnGet();
+
+            // Act
+            pageModel.OnPost();
+            var result = pageModel.ProductService.GetProducts().Last().Id;
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
@@ -97,6 +117,6 @@ namespace UnitTests.Pages.Product.Create
             //Reset
             pageModel.ProductService.DeleteData("11");
         }
-        #endregion OnGet
+        #endregion OnPost
     }
 }
