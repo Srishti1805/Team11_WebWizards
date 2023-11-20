@@ -34,6 +34,7 @@ namespace UnitTests.Model.Tests
                 Id = MockId,
                 Title = MockTitle,
                 Owner = MockOwner,
+                Description = MockDescription,
                 Url = MockUrl,
                 Image = MockImage,
                 Location = MockLocation
@@ -47,6 +48,7 @@ namespace UnitTests.Model.Tests
             Assert.IsTrue(jsonString.Contains(product.Id));
             Assert.IsTrue(jsonString.Contains(product.Title));
             Assert.IsTrue(jsonString.Contains(product.Owner));
+            Assert.IsTrue(jsonString.Contains(product.Description));
             Assert.IsTrue(jsonString.Contains(product.Url));
             Assert.IsTrue(jsonString.Contains(product.Image));
             Assert.IsTrue(jsonString.Contains(product.Location));
