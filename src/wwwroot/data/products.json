@@ -196,12 +196,7 @@
     "ProductType": 1,
     "review": null,
     "Location": "Redmond, Belleve",
-    "Ratings": [
-      2,
-      2,
-      4,
-      5
-    ]
+    "Ratings": null
   },
   {
     "Id": "10",
