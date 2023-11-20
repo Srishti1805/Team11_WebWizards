@@ -1,6 +1,7 @@
 ﻿@page "{id}"
 @using ContosoCrafts.WebSite.Services
 @using ContosoCrafts.WebSite.Models
+@using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.ReadModel
 
@@ -42,7 +43,7 @@
                 <p class="card-text">@Model.Product.Description</p>
 
                 <h4 class="card-heading"><br />Category</h4>
-                <p class="card-text">@Model.Product.ProductType</p>
+                <p class="card-text">@Model.Product.ProductType.DisplayName()</p>
 
                 <h4 class="card-heading">Price</h4>
                 <p class="card-text"><i><b>$@Model.Product.Price</b></i></p>
@@ -58,6 +59,44 @@
 
                 <h4 class="card-heading">Reviews</h4>
                 <p class="card-text">@Model.Product.review</p>
+
+                <h4 class="card-heading">Ratings</h4>
+                <div class="card-text">
+                    <div class="row">
+                        <div class="col">
+                            @{
+                                var currentRating = 0;
+                                var voteCount = 0;
+                                if (Model.Product.Ratings != null && Model.Product.Ratings.Any())
+                                {
+                                    voteCount = Model.Product.Ratings.Count();
+                                    currentRating = Model.Product.Ratings.Sum() / voteCount;
+                                }
+                                var voteString = voteCount + " " + (voteCount > 1 ? "Votes" : "Vote");
+
+                                if (voteCount == 0)
+                                {
+                                    voteString = "Be the first to vote!";
+                                }
+
+                                <span>@voteString</span>
+
+                                for (int i = 1; i < 6; i++)
+                                {
+                                    var currentStar = i;
+                                    var checkedText = "";
+
+                                    if (i <= currentRating)
+                                    {
+                                        checkedText = "checked";
+                                    }
+
+                                    <span class="fa fa-star @checkedText"></span>                                 
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="col-md-2">
