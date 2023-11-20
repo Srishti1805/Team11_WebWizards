@@ -203,6 +203,7 @@ div.transbox-index {
 
 .team-member-image {
     max-width: 256px; /* Set a max width for team member images */
+    padding-left: 30px;
 }
 
 .team-member-name {
