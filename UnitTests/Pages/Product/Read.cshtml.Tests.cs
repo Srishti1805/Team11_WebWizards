@@ -35,6 +35,9 @@ namespace UnitTests.Pages.Product.Read
 
         public static ReadModel pageModel;
 
+        /// <summary>
+        /// Test initialisation
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -73,6 +76,9 @@ namespace UnitTests.Pages.Product.Read
 
         #endregion TestSetup
 
+        /// <summary>
+        /// Valid test for OnGet
+        /// </summary>
         #region OnGet
         [Test]
         public void OnGet_Valid_Test_Should_Return_Product_Identifier()
@@ -86,6 +92,24 @@ namespace UnitTests.Pages.Product.Read
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Gridder", result);
+        }
+
+        /// <summary>
+        /// Invalid test for OnGet
+        /// </summary>
+        [Test]
+        public void OnGet_Null_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            var redirectResult = (RedirectToPageResult)pageModel.OnGet("12");
+            var result = pageModel.Product;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.IsNull(result);
+            Assert.AreEqual("./Index", redirectResult.PageName);
         }
         #endregion OnGet
     }
