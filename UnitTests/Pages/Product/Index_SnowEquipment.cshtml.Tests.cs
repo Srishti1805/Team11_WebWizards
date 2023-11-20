@@ -93,7 +93,8 @@ namespace UnitTests.Pages.Product.Index_SnowEquipment
 
             // Act
             pageModel.OnGet();
-            var result = pageModel.Products.ToList().Count;
+            var data = pageModel.Products;
+            var result = data.ToList().Count;
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
