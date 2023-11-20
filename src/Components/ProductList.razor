@@ -170,34 +170,8 @@
         SelectProduct(selectedProductId);
     }
 
-    // New Comment Flag to show the input box or not
-    bool NewComment = false;
-
-    // Next Comment Text is what the comment text is
-    string NewCommentText = "";
-
-    /// <summary>
-    /// Enable the New Comment Entry by setting the NewComment flag
-    /// </summary>
-    /// <param name="comment"></param>
-    void ShowNewCommentInput()
-    {
-        // Setting the new Comment flag to true will show the input box
-        NewComment = true;
-    }
-
-    /// <summary>
-    /// Set the New Comment Text variable to the data just entered in the input box
-    /// </summary>
-    /// <param name="newCommentText"></param>
-    void UpdateCommentText(string newCommentText)
-    {
-        NewCommentText = newCommentText;
-    }
-
-
-    string FilterDataString = "";
-    bool FilterData = false;
+    public string FilterDataString = "";
+    public bool FilterData = false;
 
     void UpdateFilterText(string text)
     {
