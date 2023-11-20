@@ -38,7 +38,7 @@
             // If filter is enabled, reduce the data set to the filter string
             if (FilterData)
             {
-                productListGroup = productListGroup.Where(m => m.Title.Contains(FilterDataString));
+                productListGroup = productListGroup.Where(m => m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase));
             }
 
             if (productListGroup.Any())
