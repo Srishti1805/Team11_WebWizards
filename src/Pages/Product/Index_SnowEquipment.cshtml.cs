@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 // Namespace declaration for the current class
