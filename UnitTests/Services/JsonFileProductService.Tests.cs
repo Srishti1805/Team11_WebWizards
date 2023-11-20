@@ -14,10 +14,10 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
 using System.Linq;
-using System;
 
-namespace UnitTests.Services.JsonFileProductServiceTest
+namespace UnitTests.Services.Tests
 {
     /// <summary>
     /// This class contains unit tests for JsonFileProductService
@@ -89,7 +89,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         {
             // Arrange
             // Get the Last data item
-            var data = pageModel.ProductService.GetAllData().Last();
+            var data = pageModel.ProductService.GetProducts().Last();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
@@ -148,7 +148,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         {
             // Arrange
             // Get the First data item
-            var data = pageModel.ProductService.GetAllData().First();
+            var data = pageModel.ProductService.GetProducts().First();
             // Store the original Rating list length
             var countOriginal = data.Ratings.Length;
 
@@ -156,7 +156,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
             // Store the result of the AddRating method (which is being tested)
             var result = pageModel.ProductService.AddRating(data.Id, 5);
             // Get the updated First data item
-            var dataNewList = pageModel.ProductService.GetAllData().First();
+            var dataNewList = pageModel.ProductService.GetProducts().First();
 
             // Assert
             Assert.AreEqual(true, result);
@@ -174,7 +174,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         {
             // Arrange
             // Get the First data item
-            var data = pageModel.ProductService.GetAllData().First();
+            var data = pageModel.ProductService.GetProducts().First();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
@@ -195,7 +195,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         {
             // Arrange
             // Get the First data item
-            var data = pageModel.ProductService.GetAllData().First();
+            var data = pageModel.ProductService.GetProducts().First();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
@@ -218,7 +218,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         {
             // Arrange
             // Get the First data item
-            var data = pageModel.ProductService.GetAllData().First();
+            var data = pageModel.ProductService.GetProducts().First();
 
             // Store the original Rating list length for comparison later
             var countOriginal = data.Ratings.Length;
@@ -227,7 +227,7 @@ namespace UnitTests.Services.JsonFileProductServiceTest
             // Store the result of the AddRating method (which is being tested)
             var result = pageModel.ProductService.AddRating(data.Id, 1);
             // Get the updated First data item for comparison
-            var dataNewList = pageModel.ProductService.GetAllData().First();
+            var dataNewList = pageModel.ProductService.GetProducts().First();
 
             // Assert
             Assert.AreEqual(true, result);
@@ -245,16 +245,15 @@ namespace UnitTests.Services.JsonFileProductServiceTest
         {
             // Arrange
             var productService = pageModel.ProductService; 
-            var testCategory = "Gardening Equipments";
+            var testCategory = ProductTypeEnum.GardeningEquipments;
 
             // Act
             var result = productService.GetProductsByCategory(testCategory);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Any()); // Ensure that there is at least one product in the result
             // check that all returned products have the correct category
-            Assert.IsTrue(result.All(product => product.Category.Equals(testCategory, StringComparison.OrdinalIgnoreCase)));
+            Assert.IsTrue(result.All(product => product.ProductType.Equals(testCategory)));
         }
 
         #endregion getProduct 
