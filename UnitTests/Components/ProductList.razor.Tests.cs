@@ -8,7 +8,7 @@ using ContosoCrafts.WebSite.Components;
 using ContosoCrafts.WebSite.Services;
 using System;
 
-namespace UnitTests.Components
+namespace UnitTests.Components.Tests
 {
     /// <summary>
     /// This class contains unit tests for the ProductModel
@@ -23,6 +23,7 @@ namespace UnitTests.Components
         [SetUp]
         public void TestInitialize()
         {
+
         }
         #endregion TestSetup
 
@@ -34,7 +35,7 @@ namespace UnitTests.Components
         public void ProductList_Default_Should_Return_Content()
         {
             // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            Services.AddSingleton(TestHelper.ProductService);
 
             // Act
             // Render the ProductList component
@@ -48,6 +49,76 @@ namespace UnitTests.Components
             Assert.AreEqual(true, result.Contains("Gridder"));
         }
         #endregion ProductList
+
+        /// <summary>
+        /// Test for testing the enabling the filter function
+        /// </summary>
+        #region FilterData
+        [Test]
+        public void Enable_Filter_Data_Set_to_True_Should_Return_True()
+        {
+            // Arrange
+            Services.AddSingleton(TestHelper.ProductService);
+            var filterButton = "Filter";
+
+            var page = RenderComponent<ProductList>();
+            var buttonList = page.FindAll("Button");
+            var button = buttonList.First(m => m.OuterHtml.Contains(filterButton));
+
+            // Act
+            button.Click();
+            var pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, page.Instance.FilterData);
+        }
+
+        /// <summary>
+        /// Test for updating the filter
+        /// </summary>
+        [Test]
+        public void UpdateFilterType_ShouldUpdateFilterDataType()
+        {
+            // Arrange
+            Services.AddSingleton(TestHelper.ProductService);
+            var page = RenderComponent<ProductList>();
+
+            // Act
+            var inputField = page.Find("input[type='text']");
+            inputField.Change("NewFilterText");
+
+            // Assert
+            Assert.AreEqual("NewFilterText", page.Instance.FilterDataString);
+        }
+
+        /// <summary>
+        /// Test for clearing out the filter text
+        /// </summary>
+        [Test]
+        public void Clear_Filter_Data_Set_to_False_Should_Return_False()
+        {
+            // Arrange
+            Services.AddSingleton(TestHelper.ProductService);
+            var clearButton = "Clear";
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (Clear)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the button name looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(clearButton));
+
+            // Act
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(false, page.Instance.FilterData);
+        }
+        #endregion FilterData
 
         #region submitRating
         /// <summary>
@@ -67,8 +138,8 @@ namespace UnitTests.Components
 
             */
             // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var Title = "MoreInfoButton_10";
+            Services.AddSingleton(TestHelper.ProductService);
+            var Title = "MoreInfoButton_9";
 
             var page = RenderComponent<ProductList>();
 
@@ -146,8 +217,8 @@ namespace UnitTests.Components
 
             */
             // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var Title = "MoreInfoButton_1";
+            Services.AddSingleton(TestHelper.ProductService);
+            var Title = "MoreInfoButton_10";
 
             var page = RenderComponent<ProductList>();
 
@@ -217,7 +288,7 @@ namespace UnitTests.Components
         public void SelectProduct_Valid_ID_Should_Return_Content()
         {
             // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            Services.AddSingleton(TestHelper.ProductService);
             var id = "10";
 
             // Render the ProductList component
