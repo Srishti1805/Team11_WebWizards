@@ -93,7 +93,7 @@ namespace UnitTests.Controller.Tests
             //store datapoint as a ProductController datapoint
             var newData = new ProductsController(pageModel.ProductService).Get().First();
 
-            var response = pageModel.ProductService.GetAllData().First();
+            var response = pageModel.ProductService.GetProducts().First();
 
             //Assert
             Assert.AreEqual(newData.Id, response.Id);
@@ -119,7 +119,7 @@ namespace UnitTests.Controller.Tests
             //Create a newRating datapoint to "Patch to theDataController"
             var newRating = new ProductsController.RatingRequest();
             {
-                newRating.ProductId = newData.ProductService.GetAllData().Last().Id;
+                newRating.ProductId = newData.ProductService.GetProducts().Last().Id;
                 newRating.Rating = 5;
             }
 
@@ -127,7 +127,7 @@ namespace UnitTests.Controller.Tests
             newData.Patch(newRating);
 
             //Assert
-            Assert.AreEqual(newData.ProductService.GetAllData().Last().Id, newRating.ProductId);
+            Assert.AreEqual(newData.ProductService.GetProducts().Last().Id, newRating.ProductId);
         }
         #endregion
     }
