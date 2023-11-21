@@ -17,7 +17,7 @@
     </div>
 </div>
 
-
+<!-- Display Products Grouped by ProductType -->
 <div class="container-fluid">
     @{
         var productList = ProductService.GetProducts();
@@ -53,6 +53,7 @@
 
                 <div class="row">
                     <div class="card-columns">
+                    <!-- Display individual product cards -->
                         @foreach (var product in productListGroup)
                         {
                             <div class="card">
@@ -75,6 +76,7 @@
     }
 </div>
 
+<!-- Product Details Modal -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         @if (selectedProduct != null)
