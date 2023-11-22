@@ -91,7 +91,7 @@ body {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
-    background-color: #a6c9f7;
+    background-color: #fae3c0;
     border-color: #1861ac;
 }
 
@@ -150,18 +150,21 @@ ul {
     line-height: 60px; /* Vertically center the text there */
     font-family: 'Nunito', sans-serif;
 }
+
 /*Backgrounds*/
 .bg-navbar {
-    background: -webkit-linear-gradient(110deg, #e9a8a6 50%, #252152 55%);
-    background: -o-linear-gradient(110deg, #e9a8a6 50%, #252152 55%);
-    background: -moz-linear-gradient(110deg, #e9a8a6 50%, #252152 55%);
-    background: linear-gradient(110deg, #a6c9f7 50%, #252152 55%);
+    background: -webkit-linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
+    background: -o-linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
+    background: -moz-linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
+    background: linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
 }
+
+/*Backgrounds*/
 .bg-footer {
-    background: -webkit-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
-    background: -o-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
-    background: -moz-linear-gradient(110deg, #252152 50%, #e9a8a6 55%);
-    background: linear-gradient(110deg, #252152 50%, #a6c9f7 55%);
+    background: -webkit-linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
+    background: -o-linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
+    background: -moz-linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
+    background: linear-gradient(110deg, #f5ebe6 50%, #f5ebe6 55%);
 }
 
 .privacy-header {
