@@ -42,7 +42,10 @@ namespace ContosoCrafts.WebSite.Pages
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
-        
+        /// <summary>
+        /// This method redirects to the index page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnPost()
         {
             return RedirectToPage("/Index");
