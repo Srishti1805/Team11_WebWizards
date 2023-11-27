@@ -73,7 +73,7 @@ namespace ContosoCrafts.WebSite.Models
         /// Gets or sets the category of the product.
         /// </summary>
         [Required(ErrorMessage = "Category is required.")]
-        public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
+        public ProductTypeEnum ProductType { get; set; }
         /// <summary>
         /// Gets or sets the review of the product.
         /// </summary>
