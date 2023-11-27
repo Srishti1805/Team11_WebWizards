@@ -1,5 +1,4 @@
-﻿
-namespace ContosoCrafts.WebSite.Models
+﻿namespace ContosoCrafts.WebSite.Models
 {
     /// <summary>
     /// enum for Product/Game Category
