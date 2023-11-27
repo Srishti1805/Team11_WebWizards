@@ -150,7 +150,7 @@ namespace ContosoCrafts.WebSite.Services
             productmodeldata.Email = data.Email;
             productmodeldata.Title = data.Title;
             productmodeldata.Description = data.Description;
-            //productmodeldata.Category = data.Category;
+            productmodeldata.ProductType = data.ProductType;
             productmodeldata.Price = data.Price;
             productmodeldata.AvailableDays = data.AvailableDays;
             productmodeldata.Url = data.Url;
@@ -213,7 +213,7 @@ namespace ContosoCrafts.WebSite.Services
             product.Email = data.Email;
             product.Title = data.Title;
             product.Description = data.Description;
-            //product.Category = data.Category;
+            product.ProductType = data.ProductType;
             product.Price = data.Price;
             product.AvailableDays = data.AvailableDays;
             product.Url = data.Url;
