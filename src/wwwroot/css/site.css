@@ -152,8 +152,12 @@ ul {
 }
 
 /*Backgrounds*/
+/*Backgrounds*/
 .bg-navbar {
-    background: transparent;
+    background: -webkit-linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+    background: -o-linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+    background: -moz-linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+    background: linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
 }
 
 /* Navbar Link Effects */
@@ -191,6 +195,14 @@ ul {
         .navbar a:hover {
             color: #f7e2cd; /* Change to your desired hover color */
         }
+
+/*Backgrounds*/
+.bg-footer {
+    background: -webkit-linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+    background: -o-linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+    background: -moz-linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+    background: linear-gradient(110deg, #fadbbb 50%, #e3ba91 55%);
+}
 
 
 .privacy-header {
