@@ -94,6 +94,24 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Gridder", result);
         }
+
+        /// <summary>
+        /// Invalid test for OnGet
+        /// </summary>
+        [Test]
+        public void OnGet_Null_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            var redirectResult = (RedirectToPageResult)pageModel.OnGet("12");
+            var result = pageModel.Product;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.IsNull(result);
+            Assert.AreEqual("/Error", redirectResult.PageName);
+        }
         #endregion OnGet
 
         #region OnPost
