@@ -23,7 +23,7 @@
         var productList = ProductService.GetProducts();
 
         /*
-
+         * 
             Change the grouping sort order to be
             Order by ProductType
             Then order by ProductList Alphabetic within the Product data set
@@ -44,7 +44,7 @@
             {
                 productListGroup = productListGroup.Where(m => m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase));
             }
-
+            <!-- If there are any products in the current group, display them -->
             if (productListGroup.Any())
             {
 
@@ -57,13 +57,16 @@
                         @foreach (var product in productListGroup)
                         {
                             <div class="card">
+                                <!-- Product image -->
                                 <div class="card-img" style="background-image: url('@product.Image');">
                                 </div>
                                 <div class="card-body">
+                                    <!-- Product title -->
                                     <h5 class="card-title">@product.Title</h5>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">
+                                        <!-- Button to show more information in a modal -->
                                         <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary" style="background-color: black;">More Info</button>
                                     </small>
                                 </div>
@@ -79,20 +82,25 @@
 <!-- Product Details Modal -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
+        <!-- If a product is selected, display its details -->
         @if (selectedProduct != null)
         {
             <div class="modal-content">
                 <div class="modal-header">
+                    <!-- Product title in the modal header -->
                     <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
+                    <!-- Close button in the modal header -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="card">
+                        <!-- Product image in the modal body -->
                         <div class="card-img" style="background-image: url('@selectedProduct.Image');">
                         </div>
                         <div class="card-body">
+                            <!-- Product description in the modal body -->
                             <p class="card-text">@selectedProduct.Description</p>
                         </div>
                     </div>
@@ -108,7 +116,7 @@
                                     {
                                         voteString = "Be the first to vote!";
                                     }
-
+                                    <!-- Display voting options with star icons -->
                                     <span>@voteString</span>
 
                                     for (int i = 1; i < 6; i++)
@@ -120,7 +128,7 @@
                                         {
                                             checkedText = "checked";
                                         }
-
+                                        <!-- Star icon for voting -->
                                         <span class="fa fa-star @checkedText" @onclick="(e => SubmitRating(currentStar))"></span>
                                     }
                                 }
@@ -133,7 +141,7 @@
     </div>
 </div>
 
-
+<!-- External stylesheet for Font icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @code
