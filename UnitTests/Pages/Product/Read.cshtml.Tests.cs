@@ -109,7 +109,7 @@ namespace UnitTests.Pages.Product.Read
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.IsNull(result);
-            Assert.AreEqual("./Index", redirectResult.PageName);
+            Assert.AreEqual("/Error", redirectResult.PageName);
         }
         #endregion OnGet
     }
