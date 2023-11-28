@@ -138,9 +138,13 @@
 
 @code
 {
+    // Represents the selected product and related information
     ProductModel selectedProduct;
+
+    // Stores the ID of the selected product
     string selectedProductId;
 
+    // Handles the selection of a product and updates the current rating
     void SelectProduct(string productId)
     {
         selectedProductId = productId;
@@ -148,17 +152,27 @@
         GetCurrentRating();
     }
 
+    // Represents the current average rating of the selected product
     float currentRating = 0;
+
+    // Represents the total number of votes received for the selected product
     float voteCount = 0;
+
+    // Represents the label to display along with the current rating
     string voteLabel;
 
+    /// <summary>
+    /// Calculates and updates the current rating for the selected product
+    /// </summary>
     void GetCurrentRating()
     {
+        // Check the ratings field and if null
         if (selectedProduct.Ratings == null)
         {
             currentRating = 0;
             voteCount = 0;
         }
+        // Check the ratings field and if not null
         if (selectedProduct.Ratings != null)
         {
             voteCount = selectedProduct.Ratings.Count();
@@ -169,6 +183,10 @@
         System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
+    /// <summary>
+    /// Submits a user rating for the selected product
+    /// </summary>
+    /// <param name="rating"></param>
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
@@ -176,20 +194,33 @@
         SelectProduct(selectedProductId);
     }
 
+    // Represents the filter string for product data
     public string FilterDataString = "";
+
+    // Represents a flag indicating whether filtering is enabled
     public bool FilterData = false;
 
+    /// <summary>
+    /// Updates the filter text based on user input
+    /// </summary>
+    /// <param name="text"></param>
     void UpdateFilterText(string text)
     {
         FilterDataString = text;
     }
 
+    /// <summary>
+    /// Enables product data filtering
+    /// </summary>
     void EnableFilterData()
     {
         // If the Filter is enabled, set the filter flag
         FilterData = true;
     }
 
+    /// <summary>
+    /// Clears the product data filter
+    /// </summary>
     void ClearFilterData()
     {
         // If the Filter is enabled, set the filter flag
