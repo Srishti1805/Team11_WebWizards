@@ -34,7 +34,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
             if (Product == null)
             {
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Error");
             }
 
             return Page();
