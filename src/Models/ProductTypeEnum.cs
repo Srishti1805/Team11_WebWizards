@@ -5,11 +5,11 @@
     /// </summary>
 	public enum ProductTypeEnum
 	{
-		Undefined = 999,
-        HomeAppliance = 0,
-        GardeningEquipments = 1,
-        SnowEquipments = 2,
-        CampingEquipments = 3,
+		Undefined = 0,
+        HomeAppliance = 1,
+        GardeningEquipments = 2,
+        SnowEquipments = 3,
+        CampingEquipments = 4,
 	}
     /// <summary>
     /// Representing class enum for product/game category
