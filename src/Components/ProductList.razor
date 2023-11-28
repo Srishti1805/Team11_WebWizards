@@ -102,7 +102,7 @@
                         <div class="row">
                             <div class="col">
                                 @{
-                                    var voteString = @currentRating + " " + @voteLabel;
+                                    var voteString = @voteLabel + " " + @currentRating + " ";
 
                                     if (voteCount == 0)
                                     {
@@ -162,7 +162,7 @@
         else
         {
             voteCount = selectedProduct.Ratings.Count();
-            voteLabel = voteCount > 1 ? "Votes" : "Vote";
+            voteLabel = voteCount == 0 ? "" : "Current Rating: ";
             currentRating = (float)Math.Round(selectedProduct.Ratings.Sum() / voteCount, 1);
         }
 
