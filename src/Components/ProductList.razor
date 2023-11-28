@@ -159,7 +159,7 @@
             currentRating = 0;
             voteCount = 0;
         }
-        else
+        if (selectedProduct.Ratings != null)
         {
             voteCount = selectedProduct.Ratings.Count();
             voteLabel = voteCount == 0 ? "" : "Current Rating: ";
