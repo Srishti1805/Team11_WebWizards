@@ -163,7 +163,7 @@
         {
             voteCount = selectedProduct.Ratings.Count();
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            currentRating = selectedProduct.Ratings.Sum() / voteCount;
+            currentRating = (float)Math.Round(selectedProduct.Ratings.Sum() / voteCount, 1);
         }
 
         System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
