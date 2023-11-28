@@ -38,11 +38,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Handles HTTP GET requests and retrieves the product details based on the provided ID
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+        public RedirectToPageResult OnGet(string id)
 
         {
             // Retrieve the product with the specified ID from the product service.
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            if (Product == null)
+            {
+                return RedirectToPage("/Error");
+            }
+            return null;
         }
 
         /// <summary>
