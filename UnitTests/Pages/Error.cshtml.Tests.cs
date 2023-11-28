@@ -145,5 +145,21 @@ namespace UnitTests.Pages.Error
             Assert.AreEqual(true, pageModel.ShowRequestId);
         }
         #endregion OnGet
+        #region OnPost
+        [Test]
+        public void OnPost_Valid_Activity_Should_Return_True()
+        {
+            // Arrange
+
+            // Act
+            var redirectResult = (RedirectToPageResult)pageModel.OnPost();
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("/Index", redirectResult.PageName);
+
+        }
+
+        #endregion OnPost
     }
 }
