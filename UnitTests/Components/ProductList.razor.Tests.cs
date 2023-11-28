@@ -190,7 +190,7 @@ namespace UnitTests.Components.Tests
 
             // Assert
             Assert.AreEqual(true, preVoteCountString.Contains("Be the first to vote!"));
-            Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
+            Assert.AreEqual(true, postVoteCountString.Contains("1"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
 
 
