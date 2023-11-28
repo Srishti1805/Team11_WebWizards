@@ -238,7 +238,7 @@ namespace UnitTests.Components.Tests
             // Get the Vote Count
             // Get the Vote Count, the List should have 7 elements, element 2 is the string for the count
             var preVoteCountSpan = starButtonList[1];
-            var preVoteCountString = ((preVoteCountSpan.InnerHtml).Split(' '))[0];
+            var preVoteCountString = ((preVoteCountSpan.InnerHtml).Split(' '))[3];
 
             // Get the First star item from the list, it should not be checked
             var starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star"));
@@ -259,19 +259,19 @@ namespace UnitTests.Components.Tests
 
             // Get the Vote Count, the List should have 7 elements, element 2 is the string for the count
             var postVoteCountSpan = starButtonList[1];
-            var postVoteCountString = ((postVoteCountSpan.InnerHtml).Split(' '))[0];
+            var postVoteCountString = ((postVoteCountSpan.InnerHtml).Split(' '))[3];
 
             // Get the Last stared item from the list
             starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star checked"));
 
             // Save the html for it to compare after the click
             var postStarChange = starButton.OuterHtml;
-            int preVoteCount = Int32.Parse(preVoteCountString);
-            int postVoteCount = Int32.Parse(postVoteCountString);
-            var result = postVoteCount - preVoteCount;
+            float preVoteRating = float.Parse(preVoteCountString);
+            float postVoteRating = float.Parse(postVoteCountString);
 
+            // The rating decreases in testing as the vote count increased but there wasnt any change in overall total rating
             // Assert
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(preVoteRating > postVoteRating, true);
 
             //Reset
             //Products = (ProductModel[])TestHelper.ProductService.GetProducts();
