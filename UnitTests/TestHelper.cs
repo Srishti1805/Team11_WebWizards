@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Routing;
 using Moq;
 
 using ContosoCrafts.WebSite.Services;
-using NUnit.Framework.Internal;
 
 namespace UnitTests
 {
