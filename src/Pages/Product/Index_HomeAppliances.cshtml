@@ -22,9 +22,9 @@
                     <td class="table-field">@product.Title</td>
                     <td class="table-field">@product.Location</td>
                     <td class="table-field">
-                        <a asp-page="Read" asp-route-id="@product.Id" class="btn-action">Read</a>
-                        <a asp-page="Update" asp-route-id="@product.Id" class="btn-action">Update</a>
-                        <a asp-page="Delete" asp-route-id="@product.Id" class="btn-action">Delete</a>
+                        <a asp-page="Read" asp-route-id="@product.param" class="btn-action">Read</a>
+                        <a asp-page="Update" asp-route-id="@product.param" class="btn-action">Update</a>
+                        <a asp-page="Delete" asp-route-id="@product.param" class="btn-action">Delete</a>
                     </td>
                 </tr>
             }
