@@ -84,9 +84,9 @@ namespace UnitTests.Pages.Product.Update
         public void OnGet_Valid_Should_Return_Product_Identifier()
         {
             // Arrange
-
+            var temp = "b068534c-f862-4618-9aac-02ae5d6d872f";
             // Act
-            pageModel.OnGet("1");
+            pageModel.OnGet(temp);
             var result = pageModel.Product;
 
             // Reset
@@ -123,8 +123,9 @@ namespace UnitTests.Pages.Product.Update
         public void OnPost_Valid_Should_Update_and_Return_Product_Details()
         {
             // Arrange
-            pageModel.OnGet("1");
-            float temp = pageModel.Product.Price;
+            var temp = "b068534c-f862-4618-9aac-02ae5d6d872f";
+            pageModel.OnGet(temp);
+            float tempPrice = pageModel.Product.Price;
 
             // Act
             pageModel.Product.Price = 20;
@@ -135,7 +136,7 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(20, pageModel.Product.Price);
 
             // Reset
-            pageModel.Product.Price = temp;
+            pageModel.Product.Price = tempPrice;
         }
 
         /// <summary>
@@ -145,7 +146,8 @@ namespace UnitTests.Pages.Product.Update
         public void OnPost_Valid_Should_Return_Correct_Page()
         {
             // Arrange
-            pageModel.OnGet("1");
+            var temp = "b068534c-f862-4618-9aac-02ae5d6d872f";
+            pageModel.OnGet(temp);
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
@@ -162,7 +164,8 @@ namespace UnitTests.Pages.Product.Update
         public void OnPost_InValid_Model_NotValid_Should_not_Return_Page()
         {
             // Arrange (preparing the necessary objects or data for the test)
-            pageModel.OnGet("1");
+            var temp = "b068534c-f862-4618-9aac-02ae5d6d872f";
+            pageModel.OnGet(temp);
 
             // Force an invalid error state
             pageModel.ModelState.AddModelError("bogus", "bogus error");
