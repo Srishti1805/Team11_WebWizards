@@ -31,10 +31,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id">The ID of the product to be displayed.</param>
         public IActionResult OnGet(string id)
         {
-            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.param.Equals(id));
             if (Product == null)
             {
-                return RedirectToPage("/Error");
+                return RedirectToPage("/Error", new {errorLocation = "Read" });
             }
 
             return Page();
