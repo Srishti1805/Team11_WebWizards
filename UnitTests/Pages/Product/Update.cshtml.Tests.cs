@@ -14,6 +14,7 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -155,6 +156,23 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        /// <summary>
+        /// Test for Invalid OnPost for the update page
+        /// </summary>
+        [Test]
+        public void OnPost_InValid_Should_Return_Error_Page()
+        {
+            // Arrange
+            pageModel.Product = new ProductModel();
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Error"));
         }
 
         /// <summary>
