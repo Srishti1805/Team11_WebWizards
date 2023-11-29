@@ -42,10 +42,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         {
             // Retrieve the product with the specified ID from the product service.
-            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.param.Equals(id));
             if (Product == null)
             {
-                return RedirectToPage("/Error");
+                return RedirectToPage("/Error", new { errorLocation = "Update" });
             }
             return null;
         }
