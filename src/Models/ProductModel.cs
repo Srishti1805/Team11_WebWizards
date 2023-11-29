@@ -88,11 +88,14 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         public int[] Ratings { get; set; }
         /// <summary>
+        /// Gets or sets a parameter identifier for product url usage
+        /// </summary>
+        public string param { get; set; }
+        /// <summary>
         /// Converts the product model to its JSON representation.
         /// </summary>
         /// <returns>A JSON string representing the product model.</returns>
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
-
-
+        
     }
 }
