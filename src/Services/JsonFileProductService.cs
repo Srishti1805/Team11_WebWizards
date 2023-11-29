@@ -137,10 +137,10 @@ namespace ContosoCrafts.WebSite.Services
             var product = GetProducts();
 
             var productmodeldata = product.FirstOrDefault(x => x.Id.Equals(data.Id));
-            //if (productmodeldata == null)
-            //{
-            //    return null;
-            //}
+            if (productmodeldata == null)
+            {
+                return null;
+            }
             /*if(data.param == null)
             {
                 data.param = Guid.NewGuid().ToString();
@@ -195,6 +195,11 @@ namespace ContosoCrafts.WebSite.Services
         {
             // Get the current set, and append the new record to it
             var dataSet = GetProducts();
+            var productmodeldata = dataSet.FirstOrDefault(x => x.Id.Equals(id));
+            if (productmodeldata == null)
+            {
+                return null;
+            }
             var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
 
             var newDataSet = GetProducts().Where(m => m.Id.Equals(id) == false);
