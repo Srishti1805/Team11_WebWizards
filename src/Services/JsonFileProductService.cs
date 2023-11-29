@@ -141,8 +141,12 @@ namespace ContosoCrafts.WebSite.Services
             //{
             //    return null;
             //}
-
+            /*if(data.param == null)
+            {
+                data.param = Guid.NewGuid().ToString();
+            }*/
             // Update the selected data into the same fields
+            productmodeldata.param = data.param;
             productmodeldata.Id = data.Id;
             productmodeldata.Owner = data.Owner;
             productmodeldata.Phone = data.Phone;
@@ -206,6 +210,7 @@ namespace ContosoCrafts.WebSite.Services
         public ProductModel CreateData(ProductModel data)
         {
             var product = new ProductModel();
+            product.param = data.param;
             product.Id = data.Id;
             product.Owner = data.Owner;
             product.Phone = data.Phone;
@@ -236,9 +241,10 @@ namespace ContosoCrafts.WebSite.Services
         public ProductModel CreateProduct()
         {
             string s = GetProducts().Last().Id;
-            int x = Int32.Parse(s);
+            int x = int.Parse(s);
             var data = new ProductModel()
             {
+                param = Guid.NewGuid().ToString(),
                 Id = (x + 1).ToString(), //System.Guid.NewGuid().ToString(),
                 Owner = "",
                 Phone = "",
