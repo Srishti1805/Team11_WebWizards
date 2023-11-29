@@ -1,6 +1,7 @@
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -65,8 +66,9 @@ namespace ContosoCrafts.WebSite
                 await next();
                 if (context.Response.StatusCode == 404)
                 {
-                    context.Request.Path = "/Error";
-                    await next();
+                    context.Response.Clear(); // Clear the response to ensure a clean slate
+                    context.Response.Headers["Location"] = "/Error"; // Set the location header for the redirect
+                    context.Response.StatusCode = 302; // Set status code for redirection
                 }
             });
 
