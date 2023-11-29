@@ -38,6 +38,7 @@ namespace ContosoCrafts.WebSite
             services.AddHttpClient();
             services.AddControllers();
             services.AddTransient<JsonFileProductService>();
+            services.AddHttpContextAccessor();
         }
 
         /// <summary>
