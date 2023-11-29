@@ -85,9 +85,9 @@ namespace UnitTests.Pages.Product.Delete
         public void OnGet_Valid_Test_Should_Return_Product_Identifier()
         {
             // Arrange
-
+            var temp = "b068534c-f862-4618-9aac-02ae5d6d872f";
             // Act
-            pageModel.OnGet("1");
+            pageModel.OnGet(temp);
             var result = pageModel.Product.Title;
 
             // Assert
@@ -122,8 +122,9 @@ namespace UnitTests.Pages.Product.Delete
         public void OnPost_Valid_Should_Delete_Product()
         {
             // Arrange
+            var temp = "b068534c-f862-4618-9aac-02ae5d6d872f";
             var dataSet = pageModel.ProductService.GetProducts();
-            pageModel.OnGet("1");
+            pageModel.OnGet(temp);
 
             // Act
             pageModel.OnPost();
