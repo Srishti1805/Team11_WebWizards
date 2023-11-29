@@ -17,6 +17,9 @@
 @if (Model.ShowRequestId)
 {
     <p class="text-danger">
+        <strong>Error: </strong> <code>@Model.Message</code>
+    </p>
+    <p class="text-danger">
         <strong>Request ID:</strong> <code>@Model.RequestId</code>
     </p>
 }
