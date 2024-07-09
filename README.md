@@ -1,4 +1,4 @@
-# ContosoCrafts
+# HandyRent
 
 ## Tutorial
 
@@ -13,3 +13,6 @@
 - [ASP.NET Core 101](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oW8nviYduHq7bmKode-p8Wy)
 
 13 part series
+
+## Live site link : 
+https://5110team11webwizards.azurewebsites.net/
